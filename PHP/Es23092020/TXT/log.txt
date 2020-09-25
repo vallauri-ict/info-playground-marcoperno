@@ -1,0 +1,2 @@
+---------------------------
+Login details[user: admin@test.com - Login OK ["Time: 8/8/2020 - 10:47:52]

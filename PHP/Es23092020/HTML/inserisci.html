@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Prova Login php</title>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="../CSS/CSS.css">
+    <link rel="stylesheet" href="../CSS/jquery-ui.css">
+    <link rel="stylesheet" href="../CSS/bootstrap.css">
+    <!--<script src="../JS/jquery-3.4.1.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../JS/jquery-ui.js"></script>
+    <script src="../JS/bootstrap.js"></script>
+    <script src="../JS/JS.js"></script>
+
+
+</head>
+<body>
+<form id="foo">
+    <div class="container pb-5 mt-3 mb-4">
+        <div class="page-header"></div>
+        <div id="alert">
+
+        </div>
+        <div class="form-row align-items-center">
+
+            <div class="col-auto" >
+                <label for="cognomeForm">Cognome</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    </div>
+                    <input style="width: 200px" type="text" name="Cognome" class="form-control" aria-describedby="inputGroupPrepend" value=""  id="cognomeForm" placeholder=" Rossi" >
+                </div>
+            </div>
+
+            <div class="col-auto" >
+                <label for="Nome">Nome</label>
+                <input style="width: 200px" type="text" class="form-control"  name="Nome" id="nomeForm"  value="" placeholder="Maroc">
+            </div>
+            <div class="col-auto" >
+                <label for="idCitta">idCitta</label>
+                <input style="width: 200px" type="text" class="form-control" name="idCitta" value="" id="idCitta" placeholder="1">
+            </div>
+            <div class="col-auto" >
+                    <label for="idClasse">idClasse</label>
+                    <input style="width: 200px" type="text" class="form-control" name="idClasse" value="" id="idClasse" placeholder="1">
+                </div>
+            <div class="col-auto" >
+                    <label for="pwd">pwd</label>
+                    <input style="width: 200px" type="text" class="form-control" name="pwd" value="" id="pwd" placeholder="sss">
+            </div>
+            <div class="col-auto" >
+                <button style='width: 120px' id="aggiungi" value="Send" type="submit" class="form-control btn btn-primary"  >Salva</button>
+            </div>
+        </div>
+
+    </div>
+</form>
+</body>
+</html>

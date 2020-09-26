@@ -27,6 +27,8 @@ include("check.php");
             100% { transform: rotate(360deg); }
         }
     </style>
+</head>
+<body>
     <div class="container pb-5 mt-3 mb-4">
         <div class="jumbotron">
             <?php
@@ -202,8 +204,6 @@ include("check.php");
             <div class="loader"></div>
         </div>
     </div>
-
-</head>
 <body>
 </body>
 </html>

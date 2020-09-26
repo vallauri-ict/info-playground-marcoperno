@@ -1,4 +1,6 @@
 $(window).ready(function () {
+    var x=$("label");
+    x.addClass("labelColor");
     $("#click").click(function () {
         event.preventDefault();
 

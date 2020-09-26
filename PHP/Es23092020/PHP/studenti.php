@@ -26,14 +26,24 @@
         <head>
             <title>Prova Login php</title>
 
-            <link rel="stylesheet" href="../CSS/CSS.css">
+            <!--<link rel="stylesheet" href="../CSS/CSS.css">-->
             <link rel="stylesheet" href="../CSS/jquery-ui.css">
             <link rel="stylesheet" href="../CSS/bootstrap.css">
             <script src="../JS/jquery-3.4.1.js"></script>
             <script src="../JS/jquery-ui.js"></script>
             <script src="../JS/bootstrap.js"></script>
             <script src="../JS/JS.js"></script>
-
+            <style>
+                body {
+                    margin:0;
+                    padding:0;
+                    font-family: sans-serif;
+                    background: linear-gradient(#141e30, #243b55);
+                }
+                .labelColor{
+                    color: #fff;
+                }
+            </style>
 
         </head>
         <body>
@@ -96,16 +106,16 @@
 
                     echo "<form>
                             <div class=\"page-header\">
-                                <h3>".$i."° studente. <small>Ecco i dettagli:</small></h3>
+                                <h3 style='color:white'>".$i."° studente. <small>Ecco i dettagli:</small></h3>
                             </div>
                            <div class=\"form-row align-items-center\">";
 
                     echo "<div class=\"col-auto\">
-                            <label for=\"idAlunnoForm\">IdAlunno</label>
+                            <label class='labelColor' for=\"idAlunnoForm\">IdAlunno</label>
                             <input style=\"width: 100px\" type=\"text\" name=\"idAlunno\" class=\"form-control\" id=\"idAlunno\" placeholder=\"1\" value='".$rows['idAlunno']."' readonly>
                         </div>";
 
-                    echo "<div class=\"col-auto\" >
+                    echo "<div class=\"col-auto labelColor\" >
                             <label for=\"cognomeForm\">Cognome</label>
                              <div class=\"input-group\">
                                 <div class=\"input-group-prepend\">
@@ -129,6 +139,8 @@
                         <label for=\"classeForm\">Classe</label>
                         <input style=\"width: 200px\" type=\"text\"  class=\"form-control\" name=\"Classe\"  id=\"classeForm\"  onkeyup='abilitaBottoni(".$i.")' placeholder=\"3A\" value='".$classe['classe']."'>
                     </div>";
+                    
+                    echo "<div class='row'>";
 
                     echo "<div class=\"col-auto\" >
                             <button style='width: 120px' id='".$i."_salva' type=\"submit\" formmethod='get' formaction='salva.php'  class=\"form-control btn btn-primary btnSalva\" name=\"Salva\" disabled>Salva</button>
@@ -140,6 +152,8 @@
 
                     echo "</div></form><hr class=\"my-4\">";
                     $i++;
+
+                    echo "</div>";
                 }
                 ?>
 

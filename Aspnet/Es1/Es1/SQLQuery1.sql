@@ -3,3 +3,4 @@
 --SELECT Film.Regista, Sum(Proiezioni.Incasso) FROM Film, Proiezioni WHERE Film.CodFilm = Proiezioni.CodFilm GROUP BY Film.Regista
 --SELECT Film.Titolo, COUNT(*) From Film, Proiezioni, Sale WHERE Sale.Citta like 'Pisa' AND   Film.Regista like 'S.Spielberg' AND Film.CodFilm = Proiezioni.CodFilm AND Sale.CodSala = Proiezioni.CodSala GROUP BY Film.CodFilm, Film.Titolo
 --SELECT f.Regista, a.Nome, Count(*) AS NumFilm FROM Film f, Attori a, Recita r WHERE r.CodAttore = f.CodFilm AND r.CodAttore like a.CodAttore GROUP BY f.Regista, a.CodAttore, A.Nome
+--SELECT f.Regista, f.Titolo FROM Film f, Recita r WHERE r.CodFilm=f.CodFilm GROUP BY F.CodFilm, F.Regista, f.Titolo HAVING count(*)<6

@@ -19,7 +19,7 @@
 
         </div>
         
-        <asp:TextBox ID="txtNome" placeholder="CCCCCCCCCCCCCCCCCCC" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtNome" placeholder="dddd" runat="server"></asp:TextBox>
         <br />
         <asp:Button ID="btnInvia" runat="server" OnClick="Button1_Click" Text="Invia" Height="28px" Width="70px" />
         <br />

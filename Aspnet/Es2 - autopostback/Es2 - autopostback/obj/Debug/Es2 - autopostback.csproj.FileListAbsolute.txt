@@ -1,0 +1,6 @@
+C:\Users\m.perno.0735\Desktop\gg2\Aspnet\Es2 - autopostback\Es2 - autopostback\bin\Es2 - autopostback.dll.config
+C:\Users\m.perno.0735\Desktop\gg2\Aspnet\Es2 - autopostback\Es2 - autopostback\bin\Es2 - autopostback.dll
+C:\Users\m.perno.0735\Desktop\gg2\Aspnet\Es2 - autopostback\Es2 - autopostback\bin\Es2 - autopostback.pdb
+C:\Users\m.perno.0735\Desktop\gg2\Aspnet\Es2 - autopostback\Es2 - autopostback\obj\Debug\Es2 - autopostback.csprojAssemblyReference.cache
+C:\Users\m.perno.0735\Desktop\gg2\Aspnet\Es2 - autopostback\Es2 - autopostback\obj\Debug\Es2 - autopostback.dll
+C:\Users\m.perno.0735\Desktop\gg2\Aspnet\Es2 - autopostback\Es2 - autopostback\obj\Debug\Es2 - autopostback.pdb

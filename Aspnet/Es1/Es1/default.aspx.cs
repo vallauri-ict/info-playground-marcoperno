@@ -11,15 +11,22 @@ namespace Es1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Page.IsPostBack==false)
+            {
+                ///operazioni solo al caricamento
+            }
+            else
+            {
+                lblRis.Text= "2";
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (txtNome.Text == "")
-                lblRis.Text = "Inseriscciiiiiiiiiiiii";
+                lblRis.Text += "Inseriscciiiiiiiiiiiii";
             else
-                lblRis.Text = "Ciao "+txtNome.Text;
+                lblRis.Text += "Ciao "+txtNome.Text;
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+		let modelloDati = {};
+		
+        $(document).ready(function () {
+            $("#btnLogin").on("click", function () {
+				modelloDati.User = $("#txtUser").val();
+				modelloDati.Pwd = $("#txtPwd").val();
+                inviaRichiesta("webServices.php", "POST", modelloDati, esito);
+            });
+        });
+        function esito(data) {
+			alert(data);
+			//alert(JSON.parse(data));
+		}
+        function inviaRichiesta(url, method, parameters, callback) {
+            $.ajax({
+                url: url,
+                contentType: "application/x-www-form-urlencoded",//"application/json;charset=UTF-8",
+                type: method,
+                data: JSON.stringify(parameters),
+                dataType: "text",
+                //async: false,
+                timeout: 3600,
+                success: callback,
+                error: function (jqXHR, text_status, str_error) {
+                    alert("ERRORE RICEZIONE DATI\n" + jqXHR.status + "\n" + jqXHR.responseText + "\n\njqXHR : " + jqXHR + "\ntext_status : " + text_status + "\nstr_error : " + str_error);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<label for="txtUser">User</label> <input id="txtUser" type="text"/>
+    <label for="txtPwd">Password</label> <input id="txtPwd" type="password"/>
+    <br /><br />
+    <input id="btnLogin" type="button" value="Login" />
+</body>
+</html>

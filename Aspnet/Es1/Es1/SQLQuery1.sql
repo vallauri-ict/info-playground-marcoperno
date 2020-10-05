@@ -10,4 +10,10 @@
 --SELECT Film.Titolo, SUM(Proiezioni.Incasso) FROM Film, Proiezioni WHERE Film.CodFilm=Proiezioni.CodFilm AND Proiezioni.DataProiezione> CAST('2001-01-01' AS DATE) and Film.Genere = 'Fantascienza' GROUP BY Film.CodFilm, Film.Titolo, Proiezioni.Incasso 
 --SELECT Film.Titolo, SUM(Proiezioni.Incasso) FROM Film, Proiezioni WHERE Film.CodFilm=Proiezioni.CodFilm and Film.Genere = 'Fantascienza' GROUP BY Film.CodFilm, Film.Titolo, Proiezioni.Incasso HAVING MIN( Proiezioni.DataProiezione) >CAST('2001-01-01' AS DATE)
 --SELECT Sale.Nome, SUM(Proiezioni.Incasso) FROM Sale, Proiezioni WHERE Proiezioni.CodSala = Sale.CodSala AND Proiezioni.DataProiezione > CAST( '2005-01-01' AS DATE) and  Proiezioni.DataProiezione < CAST( '2011-01-31' AS DATE)  AND Sale.Citta like 'Pisa' GROUP BY Sale.CodSala, Sale.Nome HAVING SUM(Proiezioni.Incasso)>20000
-SELECT Film.Titolo FROM Film WHERE NOT EXISTS (SELECT * FROM Proiezioni, Sale WHERE Sale.Citta like 'Pisa' AND Sale.CodSala = Proiezioni.CodSala AND Proiezioni.CodFilm = Film.CodFilm)
+--SELECT Film.Titolo FROM Film WHERE NOT EXISTS (SELECT * FROM Proiezioni, Sale WHERE Sale.Citta like 'Pisa' AND Sale.CodSala = Proiezioni.CodSala AND Proiezioni.CodFilm = Film.CodFilm)
+--INSERT INTO Attori (Nome, Nazionalita, AnnoNascita) VALUES ('C.Carlo', 'Italiano', 1960)
+--34
+--SELECT f.Titolo From Film f WHERE NOT EXists ( SELECT * FROM Recita r, Attori a WHERE f.CodFilm = r.CodFilm) GROUP BY f.CodFilm,  f.Titolo
+--insert into Film ( Titolo, AnnoProduzione, Nazionalita, Regista, Genere, Durata) values ( 'ET', 2000, 'Americano', 'Bhoooo', 'Fantascienza', 200)
+--SELECT a.Nome FROm Attori a WHERE NOT EXISTS(SELECT * FROM Film f, Recita r WHERE a.CodAttore = r.CodAttore AND r.CodFilm = f.CodFilm AND f.AnnoProduzione <1960 AND f.Regista <> 'F.Fellini')
+SELECT a.Nome FROM Attori a WHERE NOT EXISTS(SELECT * FROM Film f, Recita r WHERE a.CodAttore = r.CodAttore AND r.CodFilm = f.CodFilm AND f.AnnoProduzione >1960 AND f.Regista = 'F.Fellini')

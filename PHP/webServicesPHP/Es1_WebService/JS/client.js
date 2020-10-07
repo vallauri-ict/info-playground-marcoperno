@@ -25,7 +25,8 @@ function caricaComuni(){
 
                     if(trovato==false)
                     {
-                        regioni_province[element.regione.nome]=[element.provincia.nome]
+                        regioni_province[element.regione.nome]={}
+                        regioni_province[element.regione.nome][element.provincia.nome]=[]
                         caricaSelect("#selRegioni", element.regione.nome)
                     }
                     
@@ -38,8 +39,9 @@ function caricaComuni(){
 
                     if(trovato==false)
                     {
-                        regioni_province[element.regione.nome].push(element.provincia.nome)
+                        regioni_province[element.regione.nome][element.provincia.nome]=[]
                     }
+                    regioni_province[element.regione.nome][element.provincia.nome][element.nome]
                         
                 })
                 
@@ -60,8 +62,8 @@ function caricaProvince(){
     let regione=$( "#selRegioni option:selected" ).val()
     let x=regioni_province[regione]
     $("#selProvince").empty();
-    $.each(regioni_province[regione], function (index, value) { 
-        caricaSelect("#selProvince", value)
+    $.each(x, function (index, value) { 
+        caricaSelect("#selProvince", index)
     });
 }
 

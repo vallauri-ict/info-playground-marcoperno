@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+		let modelloDati = {};
+		
+        $(document).ready(function () {
+		    //invio richiesta al webServices per ottenere il json delle regioni
+			modelloDati.richiesta="R";
+			modelloDati.key="";
+			modelloDati.dati="";
+		    inviaRichiesta("webServices.php", "POST", modelloDati, popolaCmbRegioni);
+			$('#cmbRegioni').change(function () {
+				//alert($(this).val());
+				//invio richiesta al webServices per ottenere il json delle province della regione
+				modelloDati.richiesta="P";
+				modelloDati.key=$(this).val();
+				modelloDati.dati="";
+				inviaRichiesta("webServices.php", "POST", modelloDati, popolaCmbProvince);
+			});
+        });
+        function popolaCmbRegioni(data) {
+			let r = JSON.parse(data);
+			let rd = r.dati;
+			for (let k in rd) {
+				var obj = JSON.parse(rd[k]);
+				$("#cmbRegioni").append($('<option></option>').val(obj.idRegione).html(obj.Regione));
+			} 
+		}
+		function popolaCmbProvince(data) {
+		    $('#cmbProvince').empty();
+			let p = JSON.parse(data);
+			let pd = p.dati;
+			for (let k in pd) {
+				var obj = JSON.parse(pd[k]);
+				$("#cmbProvince").append($('<option></option>').val(obj.idProvincia).html(obj.Provincia));
+			}
+		}
+        function inviaRichiesta(url, method, parameters, callback) {
+            $.ajax({
+                url: url,
+                contentType: "application/x-www-form-urlencoded",//"application/json;charset=UTF-8",
+                type: method,
+                data: JSON.stringify(parameters),
+                dataType: "text",
+                //async: false,
+                timeout: 3600,
+                success: callback,
+                error: function (jqXHR, text_status, str_error) {
+                    alert("ERRORE RICEZIONE DATI\n" + jqXHR.status + "\n" + jqXHR.responseText + "\n\njqXHR : " + jqXHR + "\ntext_status : " + text_status + "\nstr_error : " + str_error);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <label for="cmbRegioni">Regione</label> 
+	<select id="cmbRegioni"></select>    
+	<br /><br />
+	<label for="cmbProvince">Provincia</label> 
+	<select id="cmbProvince"></select>    
+</body>
+</html>

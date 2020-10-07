@@ -1,10 +1,10 @@
 let datiComuni;
 let regioni_province={}
 function init(){
-    caricaComuni();
+    caricaArray();
 
 }
-function caricaComuni(){
+function caricaArray(){
     $.ajax({url: "https://raw.githubusercontent.com/matteocontrini/comuni-json/master/comuni.json", 
     type:"GET",
     success: function(response)
@@ -33,7 +33,7 @@ function caricaComuni(){
                     trovato = false
 
                     $.each(regioni_province[element.regione.nome], function (index, value) { 
-                        if(value==element.provincia.nome)
+                        if(index==element.provincia.nome)
                            trovato=true
                     });
 
@@ -41,7 +41,10 @@ function caricaComuni(){
                     {
                         regioni_province[element.regione.nome][element.provincia.nome]=[]
                     }
-                    regioni_province[element.regione.nome][element.provincia.nome][element.nome]
+                    regioni_province[element.regione.nome][element.provincia.nome].push(element.nome)
+                    //let xcc=regioni_province[element.regione.nome][element.provincia.nome]
+                    //xcc="";
+                    //regioni_province[element.regione.nome][element.provincia.nome].push(element.nome)
                         
                 })
                 
@@ -64,6 +67,16 @@ function caricaProvince(){
     $("#selProvince").empty();
     $.each(x, function (index, value) { 
         caricaSelect("#selProvince", index)
+    });
+    caricaComuni(regione);
+}
+
+function caricaComuni(regione){
+    let provincia=$( "#selProvince option:selected" ).val()
+    $("#selComuni").empty();
+    let x= regioni_province[regione][provincia]
+    $.each(x, function (index, value) { 
+        caricaSelect("#selComuni", value)
     });
 }
 

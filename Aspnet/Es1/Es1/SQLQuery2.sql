@@ -8,3 +8,29 @@
 FROM Musei m
 WHERE m.Citta = 'Londra'
 AND NOT EXISTS(SELECT * From Opere o WHERE m.NomeM = o.NomeM AND o.NomeA <> 'Tiziano')*/
+/*8
+SELECT Musei.citta, COUNT(*) 
+FROM Musei, Opere, Artisti
+WHERE Musei.Citta = 'Londra' AND
+Musei.NomeM = Opere.NomeM AND 
+Opere.NomeA = Artisti.NomeA AND 
+Artisti.Nazionalita = 'Italiano'
+GROUP BY Musei.Citta*/
+/*10
+SELECT Musei.citta, COUNT(*) 
+FROM Musei, Opere, Artisti
+WHERE Musei.Citta = 'Londra' AND
+NOT EXISTS(SELECT * FROM Opere, Artisti 
+Musei.NomeM = Opere.NomeM AND 
+Opere.NomeA = Artisti.NomeA AND 
+Artisti.Nazionalita <> 'Italiano')
+*/
+/*7
+SELECT Musei.citta, COUNT(*) 
+FROM Musei, Opere, Artisti
+WHERE Musei.Citta = 'Londra' AND
+NOT EXISTS(SELECT * FROM Opere, Artisti 
+Musei.NomeM = Opere.NomeM AND 
+Opere.NomeA = Artisti.NomeA AND 
+Artisti.Nazionalita = 'Tiziano')
+*/

@@ -67,29 +67,38 @@ namespace Socket_01
         /***********************************************/
         private void serverRicevi()
         {
-            int nByteRicevuti;
-            string strMsg;
-            byte[] bufferRX;
-            bufferRX = new byte[maxETH];
-
-            while(true)
+            try
             {
-                /* Ricevo i Dati nel Buffer e salvo le Coordinate del Client in Binary */
-                nByteRicevuti = socketID.ReceiveFrom(bufferRX, maxETH, 0, ref binary);
+                int nByteRicevuti;
+                string strMsg;
+                byte[] bufferRX;
+                bufferRX = new byte[maxETH];
+                while (true)
+                {
+                    /* Ricevo i Dati nel Buffer e salvo le Coordinate del Client in Binary */
+                    nByteRicevuti = socketID.ReceiveFrom(bufferRX, maxETH, 0, ref binary);
 
-                /* Converto il Vettore di Byte (BufferRX) in una Stringa */
-                strMsg = Encoding.ASCII.GetString(bufferRX, 0, nByteRicevuti);
+                    /* Converto il Vettore di Byte (BufferRX) in una Stringa */
+                    strMsg = Encoding.ASCII.GetString(bufferRX, 0, nByteRicevuti);
 
-                /* Preparo il Messaggio ricevuto */
-                clsMessaggio Messaggio = new clsMessaggio();
-                Messaggio.messaggio = strMsg;
-                Messaggio.ip = ((IPEndPoint)binary).Address.ToString();
-                Messaggio.porta = Convert.ToUInt16(((IPEndPoint)binary).Port);
+                    /* Preparo il Messaggio ricevuto */
+                    clsMessaggio Messaggio = new clsMessaggio();
+                    Messaggio.messaggio = strMsg;
+                    Messaggio.ip = ((IPEndPoint)binary).Address.ToString();
+                    Messaggio.porta = Convert.ToUInt16(((IPEndPoint)binary).Port);
 
-                /* Genero l' Evento per Visuaizzare i Dati Ricevuti */
-                datiRicevutiEvent(Messaggio);
+                    /* Genero l' Evento per Visuaizzare i Dati Ricevuti */
+                    datiRicevutiEvent(Messaggio);
+
+                }
+            }
+            catch (Exception)
+            {
 
             }
+            
+
+            
 
         }
 

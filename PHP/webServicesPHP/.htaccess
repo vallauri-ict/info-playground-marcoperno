@@ -1,0 +1,3 @@
+ErrorDocument 404 /Es1_WebService/404.php
+Options -Indexes
+ErrorDocument 403 /Es1_WebService/403.php

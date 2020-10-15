@@ -1,0 +1,10 @@
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\bin\Debug\Socket02_Cl.exe.config
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\bin\Debug\Socket02_Cl.exe
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\bin\Debug\Socket02_Cl.pdb
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.csprojAssemblyReference.cache
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.Form1.resources
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.Properties.Resources.resources
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.csproj.GenerateResource.cache
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.csproj.CoreCompileInputs.cache
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.exe
+C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_Cl\Socket02_Cl\obj\Debug\Socket02_Cl.pdb

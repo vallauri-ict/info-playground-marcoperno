@@ -16,4 +16,17 @@
 --SELECT f.Titolo From Film f WHERE NOT EXists ( SELECT * FROM Recita r, Attori a WHERE f.CodFilm = r.CodFilm) GROUP BY f.CodFilm,  f.Titolo
 --insert into Film ( Titolo, AnnoProduzione, Nazionalita, Regista, Genere, Durata) values ( 'ET', 2000, 'Americano', 'Bhoooo', 'Fantascienza', 200)
 --SELECT a.Nome FROm Attori a WHERE NOT EXISTS(SELECT * FROM Film f, Recita r WHERE a.CodAttore = r.CodAttore AND r.CodFilm = f.CodFilm AND f.AnnoProduzione <1960 AND f.Regista <> 'F.Fellini')
-SELECT a.Nome FROM Attori a WHERE NOT EXISTS(SELECT * FROM Film f, Recita r WHERE a.CodAttore = r.CodAttore AND r.CodFilm = f.CodFilm AND f.AnnoProduzione >1960 AND f.Regista = 'F.Fellini')
+--SELECT a.Nome FROM Attori a WHERE NOT EXISTS(SELECT * FROM Film f, Recita r WHERE a.CodAttore = r.CodAttore AND r.CodFilm = f.CodFilm AND f.AnnoProduzione >1960 AND f.Regista = 'F.Fellini')
+--SELECT f.Titolo FROM Film f WHERE f.Regista = (SELECT Film.Regista  FROM Film WHERE Film.Titolo ='Casablanca')
+--SELECT DISTINCT f.Titolo, f.Genere FROM Film f, Proiezioni p WHERE p.CodFilm = f.CodFilm AND p.DataProiezione = CAST('2004-12-25' AS DATE)
+--SELECT f.Titolo FROM Film f, Recita r, Attori a WHERE f.CodFilm=r.CodFilm AND r.CodAttore = a.CodAttore AND (A.Nome = 'AA' OR A.Nome='BB')
+--SELECT f.Regista, f.Titolo FROM Film f, Recita r WHERE f.CodFilm = r.CodFilm GROUP BY f.CodFilm, f.Titolo, f.Regista HAVING COUNT(*) <2
+--SELECT f.Titolo FROM Film f WHERE NOT EXISTS(SELECT * FROM Proiezioni p, Sale s WHERE s.CodSala = 'Pisa' AND  s.CodSala = p.CodSala AND p.CodFilm = f.CodFilm)
+--SELECT a.Nome FROM Attori a WHERE NOT EXISTS(SELECT * FROM Film f, Recita r WHERE f.Regista='F.Fellini' AND f.CodFilm = r.CodFilm AND R.CodAttore = a.CodAttore)
+--SELECT a.Nome FROM Attori a WHERE NOT EXISTS( SELECT * FROM Film f, Recita r WHERE f.Regista='F.Fellini' AND f.CodFilm = r.CodFilm AND r.CodAttore = a.CodAttore AND f.AnnoProduzione>1960)
+--select f.titolo, count(*) from Film f, Recita r, Attori a WHERE f.CodFilm = r.CodFilm AND r.CodAttore = a.CodAttore GROUP BY f.CodFilm, f.Titolo HAVING MAX(a.AnnoNascita)<1970
+--SELECT a.Nome From Attori a WHERE NOT EXISTS( SELECT * FROM Film, Recita WHERE Film.CodFilm = Recita.CodFilm AND Recita.CodAttore= a.CodAttore AND Film.Regista<>'F.Fellini' AND Film.AnnoProduzione<1960)
+--SELECT Sale.Citta, Count(*) As NumSale FROM Sale WHERE Sale.Posti>60 GROUP BY Sale.Citta
+--SELECT f.Titolo, SUM(p.Incasso) FROM Film f, Proiezioni p WHERE p.CodFilm = f.CodFilm AND p.DataProiezione > CAST('2001-1-1' AS DATE) AND f.Genere='Fantascienza' GROUP BY f.CodFilm, f.Titolo
+--SELECT f.Regista, f.Titolo FROM Film f, Recita R, Attori a WHERE f.CodFilm=R.CodFilm AND a.CodAttore = r.CodAttore GROUP BY f.CodFilm, f.Regista, f.Titolo HAVING COUNT(*)<6 AND MIN(a.AnnoNascita) >1959
+INSERT INTO Proiezioni (CodFilm, CodSala, Incasso, DataProiezione) VALUES(5,2,122, CAST('1-1-2005' AS DATE))

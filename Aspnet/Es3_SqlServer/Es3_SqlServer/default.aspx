@@ -16,7 +16,7 @@
             <asp:Label ID="Label1" runat="server" Text="Provnce"></asp:Label>
             <asp:DropDownList AutoPostBack="true" ID="cmbProvince" runat="server" OnSelectedIndexChanged="cmbProvince_SelectedIndexChanged"></asp:DropDownList>
             <br />
-            <asp:Label ID="Label2" runat="server" Text="Comuni"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Comuni:"></asp:Label>
             <asp:DropDownList ID="cmbComuni" runat="server"></asp:DropDownList>
         </div>
     </form>

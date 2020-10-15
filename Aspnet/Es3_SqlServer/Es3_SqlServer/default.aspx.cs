@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data;
+
 //using Es3_SqlServer.App_Code;
 
 namespace Es3_SqlServer
@@ -16,6 +21,7 @@ namespace Es3_SqlServer
             db = new clsDB("App_Data\\DBItalia.mdf");
             if (!Page.IsPostBack)
             {
+                
                 popolaCmbRegioni();
             }
            
@@ -64,6 +70,31 @@ namespace Es3_SqlServer
         protected void cmbProvince_SelectedIndexChanged(object sender, EventArgs e)
         {
             popolaCmbComuni();
+            
+        }
+
+        protected void btnInvia_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                    
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = $"INSERT INTO Utenti( Nome, Cognome, Regione,  Provincia, Citta, Data) VALUES ('{txtNome.Text}', '{txtCognome.Text}', '{cmbRegioni.Text}', '{cmbProvince.Text}','{cmbComuni.Text}',convert(date,'{DatePicker.SelectedDate.ToString("dd/MM/yyyy")}', 104))";
+                if(db.InserisciUtente(cmd)=="ok")
+                {
+                    lblRis.Text = "OK";
+                }
+                else
+                {
+                    lblRis.Text = "No";
+                }
+            }
+            catch (Exception)
+            {
+
+                    
+            }
             
         }
     }

@@ -6,7 +6,7 @@ using System.Web;
 using ADOSQLServer2017_ns;
 using System.Data;
 using System.Data.SqlClient;
-
+using System.Threading.Tasks;
 
 public class clsDB
 {
@@ -46,5 +46,20 @@ public class clsDB
         cmd.CommandText += "ORDER BY Comune ASC";
         cmd.CommandType = CommandType.Text;
         return ado.EseguiQuery(cmd);
+    }
+
+    internal string InserisciUtente(SqlCommand cmd)
+    {
+        try
+        {
+            ado.EseguiNonQuery(cmd);
+            return "ok";
+        }
+        catch (Exception ex)
+        {
+            return "no";
+        }
+        
+        
     }
 }

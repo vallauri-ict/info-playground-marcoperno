@@ -18,6 +18,7 @@ namespace Socket_01
     {
         clsSocket socketServer;
         clsSocket socketClient;
+        clsMessaggio MsgFromServer;
         public delegate void aggiornaGraficaEventHandler(clsMessaggio Msg);
         public Es01_Socket()
         {
@@ -80,7 +81,7 @@ namespace Socket_01
         private void DatiRicevuti(clsMessaggio inMsg)
         {
             
-            //socketServer.inviaMsg("ACK");
+            socketServer.inviaMsg("ACK");
             aggiornaGraficaEventHandler pt = new aggiornaGraficaEventHandler(aggiornaGrafica);
             this.Invoke(pt, inMsg);
             
@@ -113,10 +114,16 @@ namespace Socket_01
         {
             IPAddress iP = IPAddress.Parse((txtIPHostRemoto.Text.ToString()));
             socketClient = new clsSocket(false, Convert.ToInt32(cmbPortaHostRemoto.Text), iP);
-            socketClient.avviaServer();
-            socketClient.datiRicevutiEvent += DatiRicevuti;
             socketClient.inviaMsg(txtMessaggioDaInviare.Text);
+            socketClient.datiRicevutiEvent += DatiRicevuti2;
+            socketClient.clientRicevi();
 
+        }
+
+        private void DatiRicevuti2(clsMessaggio Msg)
+        {
+            aggiornaGraficaEventHandler pt = new aggiornaGraficaEventHandler(aggiornaGrafica);
+            this.Invoke(pt, Msg);
         }
     }
 }

@@ -206,7 +206,6 @@
             // 
             // btnInvia
             // 
-            this.btnInvia.Enabled = false;
             this.btnInvia.Location = new System.Drawing.Point(134, 166);
             this.btnInvia.Name = "btnInvia";
             this.btnInvia.Size = new System.Drawing.Size(75, 23);

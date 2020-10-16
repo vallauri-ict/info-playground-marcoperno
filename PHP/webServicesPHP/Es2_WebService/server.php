@@ -12,7 +12,28 @@ if(isset($modelloDati["action"])) // se la action esiste fa:
     }
     switch($action){
     case "login":  // prima funzione del webservice
-        if(1==1)
+
+        $pdo=new PDO('mysql:host=localhost;dbname=es2login;charset=utf8','root','');
+
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql="SELECT * FROM utenti WHERE Utente = :utente AND Pwd = :pwd";
+
+        $sth= $pdo->prepare($sql);
+
+        $utente=$modelloDati["utente"];
+        $pwd=$modelloDati["pwd"];
+
+        $sth->bindParam(':utente', $utente, PDO::PARAM_STR);
+        $sth->bindParam(':pwd', $pwd, PDO::PARAM_STR);
+
+        $sth->execute();
+
+        $data=$sth->fetch();
+        
+        $count= $sth->rowCount();
+
+        if($count>0)
         {
             $modelloDati["code"]="1";
             $modelloDati["pwd"]="";

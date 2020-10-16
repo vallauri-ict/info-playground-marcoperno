@@ -20,7 +20,7 @@ function login() {
         data: JSON.stringify(modelloDati),
         success: function (json) {
             var ris=JSON.parse(json);
-            if(ris["code"]=="1")
+            if(ris["code"]=="1")///questa parte di codice sarebbe inutile perchè ritorno 401 se il login è sbagliato, ma lho lasciato comuqnue per farlo lavorare anche se ritorno 200 anche se il login è andaaìto male
             {
                 alert("log ok");
             }
@@ -31,7 +31,7 @@ function login() {
         },
         error: function(e)
         {
-            alert(e.error);
+            alert("log no");
         }
         
     });

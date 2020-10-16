@@ -25,7 +25,7 @@
             <asp:Label ID="Label2" runat="server" Text="Comuni:"></asp:Label>
             <asp:DropDownList ID="cmbComuni" runat="server"></asp:DropDownList>
             <br />
-            <asp:Calendar AutoPostBack="true" ID="DatePicker" runat="server"></asp:Calendar>
+            <asp:Calendar  ID="DatePicker" runat="server"></asp:Calendar>
             <br />
             <asp:Button ID="btnInvia"  runat="server" Text="Button" OnClick="btnInvia_Click" />
             <asp:Label ID="lblRis" runat="server" Text=""></asp:Label>

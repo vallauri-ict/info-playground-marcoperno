@@ -1,23 +1,41 @@
 <?php
-if(isset($_POST["action"])) // se la action esiste fa:
-{
-    $action=$_POST["action"];
-}
-else{
-    $action="";
-}
-switch($action){
- case "login":  // prima funzione del webservice
-  $risposta=new stdClass(); // costruttore principale per costruire un oggetto generico vuoto
-  $risposta->code= 1; // stato della richiesta
-  $risposta->desc= "Login effetuato"; // descrizione della riposta 
-  $risposta->nome="Pippo";
-   echo json_encode($risposta);
-  break;
 
-  default:
-     include "Sito/HTML/index.html";
-}
+session_start();
+$json=file_get_contents('php://input');
+$modelloDati=json_decode($json, true);
+if(isset($modelloDati["action"])) // se la action esiste fa:
+    {
+        $action=$modelloDati["action"];
+    }
+    else{
+        $action="";
+    }
+    switch($action){
+    case "login":  // prima funzione del webservice
+        if(1==1)
+        {
+            $modelloDati["code"]="1";
+            $modelloDati["pwd"]="";
+            $_SESSION["utente"]= $modelloDati["utente"];
+        }
+        else
+        {
+            $modelloDati["code"]="-1";
+            $modelloDati["pwd"]="";
+            http_response_code(401);
+        }
+        echo json_encode( $modelloDati);        
+        break;
 
+    case "verifica":  // prima funzione del webservice
+        if($_SESSION["utente"] == $modelloDati["utente"])
+            echo "ok";
+        else
+            echo "no";
+        break;
+
+    default:
+        include "Sito/HTML/index.html";
+}
 
 ?>

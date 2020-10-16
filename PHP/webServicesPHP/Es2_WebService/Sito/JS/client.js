@@ -1,9 +1,62 @@
+var modelloDati={};
 let datiComuni;
 let regioni_province={}
 function init(){
     caricaArray();
+    $("#btnLogin").click(login);
+    $("#btnVerifica").click(verificaLog);
 
 }
+function login() { 
+    
+    modelloDati.action="login";
+    modelloDati.utente= $("#nome").val();
+    modelloDati.pwd=$("#pwd").val();
+    modelloDati.code="";
+    $.ajax({
+        url: 'server.php',
+        type: 'POST',
+        cache: false,
+        data: JSON.stringify(modelloDati),
+        success: function (json) {
+            var ris=JSON.parse(json);
+            if(ris["code"]=="1")
+            {
+                alert("log ok");
+            }
+            else
+            {
+                alert("log no");
+            }
+        },
+        error: function(e)
+        {
+            alert(e.error);
+        }
+        
+    });
+ }
+ function verificaLog() { 
+    modelloDati.action="verifica";
+    $.ajax({
+        url: 'server.php',
+        type: 'POST',
+        cache: false,
+        data: JSON.stringify(modelloDati),
+        success: function (xhr, status) {
+            if(xhr=="ok")
+                alert("ok");
+            else
+                alert("no");
+
+        },
+        error: function(e)
+        {
+            alert(e.error);
+        }
+        
+    });
+ }
 function caricaArray(){
     $.ajax({url: "https://raw.githubusercontent.com/matteocontrini/comuni-json/master/comuni.json", 
     type:"GET",

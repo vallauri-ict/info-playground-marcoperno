@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Progetto2._default" %>
+﻿<%@ Page Async="true" Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="Progetto2._default" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="btn" runat="server" Text="Button" OnClick="btn_Click" />
             <asp:TextBox ID="txt" runat="server"></asp:TextBox>
         </div>
     </form>

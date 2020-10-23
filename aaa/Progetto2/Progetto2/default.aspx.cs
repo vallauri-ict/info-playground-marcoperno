@@ -85,7 +85,7 @@ namespace Progetto2
 
             var options = new ChargeCreateOptions
             {
-                Amount = 500,
+                Amount = 5000,
                 Currency = "usd",
                 Description = "test",
                 Source = stripetoken.Id

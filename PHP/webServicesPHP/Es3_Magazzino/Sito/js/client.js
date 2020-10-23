@@ -2,7 +2,7 @@
 function init(){
     caricaTabella2();
     $("#btnInserisci").click(inserisci);
-    //$("#btnLogin").click(login);
+    $("#btnLogin").click(login);
 }
 
 function caricaTabella()

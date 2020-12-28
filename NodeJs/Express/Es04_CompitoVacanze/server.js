@@ -43,12 +43,11 @@ app.get('/checkAuthenticated', checkAuthenticated, function (req, res) {
     res.end();
 });
 
-app.put('/prenotazione/:prenotazione', checkAuthenticated, function (req, res) {
+app.put('/prenotazione/:prenotazione', function (req, res) {
+    
     if(req.session.tipo == 'segreteria')
     {
-        //serv.prenotazioneUpdate(req, res);
-        res.write("ok");
-        res.end();
+        serv.prenotazioneUpdate(req, res);
     }
     else
     {

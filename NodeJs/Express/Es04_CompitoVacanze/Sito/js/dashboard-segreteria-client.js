@@ -46,50 +46,51 @@ function caricaPrenotazioni() {
                         let td = $("<td></td>");
                         if(i==0)
                         {
-                            td.attr('id', index);
-                            td.text(val[campiPrenotazione[i]]);
+                            td.attr('id', val[campiPrenotazione[0]]);
+                            td.text(val[campiPrenotazione[0]]);
                         }
                         else if(i==2)
                         {
                             let input = $("<input type='date'/>");
+                            let x = val[campiPrenotazione[i]].substring(0,10);
                             input.val(val[campiPrenotazione[i]].substring(0,10));
-                            input.attr('id', campiPrenotazione[i]+"-"+index);
-                            input.on('click',{'id': index}, toogleBtnSalva);
+                            input.attr('id', campiPrenotazione[i]+"-"+val[campiPrenotazione[0]]);
+                            input.on('click',{'id': val[campiPrenotazione[0]]}, toogleBtnSalva);
                             td.append(input);
                         }
                         else if(i==4)
                         {
                             let input = $("<input type='time'/>");
                             input.val(val[campiPrenotazione[i]]);
-                            input.attr('id', campiPrenotazione[i]+"-"+index);
-                            input.on('click',{'id': index}, toogleBtnSalva);
+                            input.attr('id', campiPrenotazione[i]+"-"+val[campiPrenotazione[0]]);
+                            input.on('click',{'id': val[campiPrenotazione[0]]}, toogleBtnSalva);
                             td.append(input);
                         }
                         else if(i==5)
                         {
                             let checkbox = $("<input type='checkbox'/>");
-                            checkbox.attr('id', 'servita-'+index);
-                            checkbox.on('click',  {'id': index}, toogleBtnSalva);
+                            checkbox.attr('id', 'servita-'+val[campiPrenotazione[0]]);
+                            checkbox.on('click',  {'id': val[campiPrenotazione[0]]}, toogleBtnSalva);
                             if(val[campiPrenotazione[i]] == '1')
                                 checkbox.attr('checked', true);
                             td.append(checkbox);
                         }
                         else if(i==7)
                         {
-                            let button = $("<button id='btnSalva-"+index+"' onclick='updatePrenotazione("+index+")' disabled=true class='btn btn-success'>Salva</button>");
+                            let button = $("<button id='btnSalva-"+val[campiPrenotazione[0]]+"' onclick='updatePrenotazione("+val[campiPrenotazione[0]]+")' disabled=true class='btn btn-success'>Salva</button>");
                             td.append(button);
                         }
                         else if(i==8)
                         {
-                            let button = $("<button id='btnElimina-"+index+"' class='btn btn-danger'>Elimina</button>");
+                            let button = $("<button id='btnElimina-"+val[campiPrenotazione[0]]+"' class='btn btn-danger'>Elimina</button>");
                             td.append(button);
                         }
                         else
                         {
                             let input = $("<input type='text'/>");
                             input.val(val[campiPrenotazione[i]]);
-                            input.attr('id', campiPrenotazione[i]+"-"+index);
-                            input.on('click',{'id': index}, toogleBtnSalva);
+                            input.attr('id', campiPrenotazione[i]+"-"+val[campiPrenotazione[0]]);
+                            input.on('click',{'id': val[campiPrenotazione[0]]}, toogleBtnSalva);
                             td.append(input);
                         }
                             
@@ -125,17 +126,18 @@ function updatePrenotazione(id)
     let vet = {};
     $.each(campiPrenotazione, function (index, val) { 
         if(index==0)
-            vet['id']=id
+            vet['id']= ''+id
         else if(index==5)
         {
-            if($("#"+val+"-"+id).val() == "on")
-                vet[val] = true;
+            let x = document.getElementById(val+"-"+id).checked;
+            if(x == true)
+                vet[val] = "1";
             else
-                vet[val] = false;
+                vet[val] = "0";
         }
         else
         {
-            vet[val] = $("#"+val+"-"+id).val();
+            vet[val] = ''+$("#"+val+"-"+id).val();
         }
         
     });
@@ -153,7 +155,7 @@ function updatePrenotazione(id)
         },
         error: function(error, status, xhr)
         {
-            window.location.href="http://localhost:1337/home";
+            alert(error.status+" : "+ error.responseText);
         },
     });
 }

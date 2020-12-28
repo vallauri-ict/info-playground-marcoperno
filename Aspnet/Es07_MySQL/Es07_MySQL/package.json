@@ -1,0 +1,9 @@
+{
+  "name": "es07_my-sql",
+  "version": "0.0.0",
+  "description": "Es07_MySQL",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}

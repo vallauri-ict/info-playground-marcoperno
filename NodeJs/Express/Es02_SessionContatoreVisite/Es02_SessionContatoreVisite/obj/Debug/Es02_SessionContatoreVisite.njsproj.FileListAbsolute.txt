@@ -1,0 +1,2 @@
+C:\Users\germano.pagliero\Desktop\5infE\Es02_SessionContatoreVisite\Es02_SessionContatoreVisite\obj\Debug\Es02_SessionContatoreVisite.njsprojAssemblyReference.cache
+C:\Users\germano.pagliero\Desktop\5infE\Es02_SessionContatoreVisite\Es02_SessionContatoreVisite\bin\Microsoft.NodejsTools.WebRole.dll

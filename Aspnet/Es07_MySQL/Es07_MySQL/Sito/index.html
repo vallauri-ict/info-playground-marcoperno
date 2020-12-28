@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="icona.png">
+    <script>
+        let modelloDati = {};
+
+        $(document).ready(function () {
+            //invio richiesta al webServices per ottenere il json delle regioni
+            modelloDati.richiesta = "R"; //READ
+            modelloDati.key = "*"; //tutti
+            modelloDati.dati = "";
+        });
+        function inviaRichiesta() {
+            $.ajax({
+                url: "http://localhost:1337/alunni",
+                type: "POST",
+                data: modelloDati,
+                success: function (risposta, status) {
+                    alert(risposta[0].Cognome); //risposta è già convertito in automatico in oggetto js (se dal server ho text/json)
+                },
+                error: function (errore) {
+                    alert("Errore del server");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <button onclick="inviaRichiesta()">Leggi Alunni</button>
+</body>
+</html>

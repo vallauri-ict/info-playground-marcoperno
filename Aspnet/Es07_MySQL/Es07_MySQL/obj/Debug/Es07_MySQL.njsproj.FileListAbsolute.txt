@@ -1,0 +1,6 @@
+C:\Users\Utente\Desktop\5infE\TPSI\NodeJS_VisualStudio 2020\Es07_MySQL\Es07_MySQL\obj\Debug\Es07_MySQL.njsprojAssemblyReference.cache
+C:\Users\Utente\Desktop\5infE\TPSI\NodeJS_VisualStudio 2020\Es07_MySQL\Es07_MySQL\obj\Debug\Es07_MySQL.njsproj.CoreCompileInputs.cache
+C:\Users\Utente\Desktop\5infE\TPSI\NodeJS_VisualStudio 2020\Es07_MySQL\Es07_MySQL\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\marco\Desktop\Es07_MySQL\Es07_MySQL\obj\Debug\Es07_MySQL.njsprojAssemblyReference.cache
+C:\Users\marco\Desktop\Es07_MySQL\Es07_MySQL\obj\Debug\Es07_MySQL.njsproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\Es07_MySQL\Es07_MySQL\bin\Microsoft.NodejsTools.WebRole.dll

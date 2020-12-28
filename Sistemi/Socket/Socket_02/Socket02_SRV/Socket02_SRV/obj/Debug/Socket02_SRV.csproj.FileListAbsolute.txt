@@ -1,0 +1,10 @@
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\bin\Debug\Socket02_SRV.exe.config
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\bin\Debug\Socket02_SRV.exe
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\bin\Debug\Socket02_SRV.pdb
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.csprojAssemblyReference.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.Form1.resources
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.Properties.Resources.resources
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.csproj.GenerateResource.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.csproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.exe
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_02\Socket02_SRV\Socket02_SRV\obj\Debug\Socket02_SRV.pdb

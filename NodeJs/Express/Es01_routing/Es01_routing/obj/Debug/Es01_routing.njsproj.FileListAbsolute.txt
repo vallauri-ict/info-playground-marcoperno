@@ -1,0 +1,5 @@
+C:\Users\germano.pagliero\Desktop\5infE\Es01_routing\Es01_routing\obj\Debug\Es01_routing.njsprojAssemblyReference.cache
+C:\Users\germano.pagliero\Desktop\5infE\Es01_routing\Es01_routing\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\marco\Desktop\NodeJs\Express\Es01_routing\Es01_routing\obj\Debug\Es01_routing.njsprojAssemblyReference.cache
+C:\Users\marco\Desktop\NodeJs\Express\Es01_routing\Es01_routing\obj\Debug\Es01_routing.njsproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\NodeJs\Express\Es01_routing\Es01_routing\bin\Microsoft.NodejsTools.WebRole.dll

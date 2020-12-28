@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Es06_InfoStore.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>InfoStore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="img/favicon.ico" type="image/ico" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/ico" />
+    <script src="Scripts/jquery-3.0.0.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/bootstrap.js"></script>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm fixed-top bg-dark navbar-dark">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="index.aspx">
+                    <img src="img/raspberry.png" alt="logo" style="width: 40px;" />
+                </a>
+                <a class="navbar-brand" href="index.aspx">InfoStore</a>
+                <button class="navbar-toggler btn btn-dark" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link" ID="lnkLogin" runat="server" OnClick="lnkLogin_Click">Login</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link" ID="lnkLogout" runat="server" OnClick="lnkLogout_Click">Logout</asp:LinkButton>
+                        </li>
+                        <asp:ContentPlaceHolder ID="cphNavBar" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </ul>
+                    <asp:LinkButton class="nav-link" ID="lnkUsername" runat="server" ForeColor="Yellow"></asp:LinkButton>
+                </div>
+            </nav>
+            <br />
+            <br />
+            <br />
+            <asp:ContentPlaceHolder ID="cphBody" runat="server">
+            </asp:ContentPlaceHolder>
+            <br />
+            <br />
+            <br />
+            <nav class="navbar navbar-expand-sm bg-dark fixed-bottom justify-content-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span>InfoStore</span>
+                    </li>
+                    <li class="nav-item">
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    </li>
+                    <li class="nav-item">
+                        <a href="inf5E.html" target="_blank">&copy; 5 E informatica</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </form>
+</body>
+</html>

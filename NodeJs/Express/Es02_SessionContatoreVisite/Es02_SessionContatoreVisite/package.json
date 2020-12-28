@@ -1,0 +1,9 @@
+{
+  "name": "es02_session-contatore-visite",
+  "version": "0.0.0",
+  "description": "Es02_SessionContatoreVisite",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}

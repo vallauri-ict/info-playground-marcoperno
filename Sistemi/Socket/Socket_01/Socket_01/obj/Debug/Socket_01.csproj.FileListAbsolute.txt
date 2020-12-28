@@ -37,3 +37,13 @@ C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Sock
 C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.csproj.CoreCompileInputs.cache
 C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.exe
 C:\Users\m.perno.0735\Desktop\gg2\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.pdb
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\bin\Debug\Socket_01.exe.config
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\bin\Debug\Socket_01.exe
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\bin\Debug\Socket_01.pdb
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.csprojAssemblyReference.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.Es01_Socket.resources
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.Properties.Resources.resources
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.csproj.GenerateResource.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.csproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.exe
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\Sistemi\Socket\Socket_01\Socket_01\obj\Debug\Socket_01.pdb

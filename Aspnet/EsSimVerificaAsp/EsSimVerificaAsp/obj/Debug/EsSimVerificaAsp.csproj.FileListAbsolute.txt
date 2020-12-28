@@ -1,0 +1,7 @@
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\bin\EsSimVerificaAsp.dll.config
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\bin\EsSimVerificaAsp.dll
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\bin\EsSimVerificaAsp.pdb
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\obj\Debug\EsSimVerificaAsp.csprojAssemblyReference.cache
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\obj\Debug\EsSimVerificaAsp.csproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\obj\Debug\EsSimVerificaAsp.dll
+C:\Users\marco\Desktop\EsSimVerificaAsp\EsSimVerificaAsp\obj\Debug\EsSimVerificaAsp.pdb

@@ -1,0 +1,83 @@
+<html>
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<hr>
+<div class="container bootstrap snippet">
+    <div class="row">
+  		<div  class="col-sm-12 "><h1 class="text-center">Gestisci utente</h1></div>
+    </div>
+    <div class="row">
+  		<div class="col-sm-2"><!--left col-->
+              
+
+      
+          
+        </div><!--/col-3-->
+    	<div class="col-sm-8">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+              </ul>
+
+              
+        <div class="tab-content">
+            <div class="tab-pane active" id="home">
+                <hr>
+                <form class="form" action="##"">
+                      <div class="d-flex justify-content-center form-group">
+                          
+                          <div class="col-xs-6">
+                              <label for="nome"><h4>First name</h4></label>
+                              <input type="text" class="form-control" name="nome" id="nome" placeholder="nome" readonly=true title="">
+                          </div>
+                      </div>
+                      <div class="d-flex justify-content-center form-group">
+                          
+                          <div class="col-xs-6">
+                            <label for="cognome"><h4>Last name</h4></label>
+                              <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" readonly=true title="">
+                          </div>
+                      </div>
+                      <div class="d-flex justify-content-center form-group">
+                          
+                        <div class="col-xs-6">
+                            <label for="password"><h4>Password</h4></label>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                        </div>
+                      </div>
+                     
+                     
+                      <div class="d-flex justify-content-center form-group">
+                           <div class="col-xs-12">
+                                <br>
+                              	<button style="width: 100%; margin-bottom: 10px;"  class="btn btn-lg btn-info" onclick="getNomeCognome()"><i class="glyphicon glyphicon-ok-sign"></i> richiedi nome e cognome</button>
+                               	<button style="width: 49.5%;"  class="btn btn-lg btn-success" ><i class="glyphicon glyphicon-repeat"></i> Cambia password</button>
+                                <button style="width: 49.5%;"  class="btn btn-lg btn-danger" > Logout</button>
+                            </div>
+                      </div>
+                      <div class="form-group d-flex justify-content-center">
+                            
+                      </div>
+              	</form>
+              
+                
+              
+            </div><!--/tab-pane-->
+            
+            
+             
+        </div><!--/tab-content-->
+        <div class="col-sm-2">
+
+        </div><!--/col-9-->
+    </div><!--/row-->
+</body>
+</html>

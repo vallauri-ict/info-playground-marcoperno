@@ -1,0 +1,4 @@
+express myExpressApp --view pug
+cd myExpressApp
+npm install
+npm start

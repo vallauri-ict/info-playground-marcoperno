@@ -1,4 +1,4 @@
-const PORT = 1337;
+const PORT = 3000;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
@@ -43,7 +43,7 @@ app.get('/checkAuthenticated', checkAuthenticated, function (req, res) {
     res.end();
 });
 
-app.put('/prenotazione/:prenotazione', function (req, res) {
+app.put('/prenotazioneUpdate', checkAuthenticated, function (req, res) {
     
     if(req.session.tipo == 'segreteria')
     {
@@ -54,6 +54,19 @@ app.put('/prenotazione/:prenotazione', function (req, res) {
         res.writeHead(401);
         res.end();
     }
+});
+
+app.delete('/prenotazioneDelete', function (req, res) {
+    serv.prenotazioneDestroy(req, res);
+    /*if(req.session.tipo == 'segreteria')
+    {
+        serv.prenotazioneDestroy(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }*/
 });
 
 app.post('/login', checkNotAuthenticated, function (req, res) {

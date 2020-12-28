@@ -7,7 +7,7 @@ let campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_id", "o
 function checkAuthenticated() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:1337/checkAuthenticated",
+        url: "/checkAuthenticated",
         data: {},
         success: function (risposta, status, xhr) {
             if(risposta=="segreteria")//ulteriore controllo per verificare che sia effettivamente la segreteria
@@ -20,7 +20,7 @@ function checkAuthenticated() {
         },
         error: function(error, status, xhr)
         {
-            window.location.href="http://localhost:1337/home";
+            window.location.href="/home";
         },
     });
 }
@@ -33,7 +33,7 @@ function caricaPrenotazioneIndex() {
 function caricaPrenotazioni() {
     $.ajax({
         type: "POST",
-        url: "http://localhost:1337/prenotazioneIndex",
+        url: "/prenotazioneIndex",
         data: {},
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
@@ -82,7 +82,7 @@ function caricaPrenotazioni() {
                         }
                         else if(i==8)
                         {
-                            let button = $("<button id='btnElimina-"+val[campiPrenotazione[0]]+"' class='btn btn-danger'>Elimina</button>");
+                            let button = $("<button id='btnElimina-"+val[campiPrenotazione[0]]+"' onclick='deletePrenotazione("+val[campiPrenotazione[0]]+")' class='btn btn-danger'>Elimina</button>");
                             td.append(button);
                         }
                         else
@@ -107,7 +107,7 @@ function caricaPrenotazioni() {
             alert(error.status+" : "+ error.responseText);
             if(error.status=='401')
             {
-                window.location.href="http://localhost:1337/home";
+                window.location.href="/home";
             }
         }
     });
@@ -143,7 +143,7 @@ function updatePrenotazione(id)
     });
     $.ajax({
         type: "PUT",
-        url: "http://localhost:1337/prenotazione/:prenotazione",
+        url: "/prenotazioneUpdate",
         data: vet,
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
@@ -160,6 +160,27 @@ function updatePrenotazione(id)
     });
 }
 
+function deletePrenotazione(id) {
+    $.ajax({
+        type: "DELETE",
+        url: "/prenotazioneDelete",
+        data: {'id': id },
+        success: function (risposta, status, xhr) {
+            if(xhr.status == 200)
+            {
+                alert("eliminato");
+                $("#tbody").empty();
+                caricaPrenotazioni();
+            }
+        },
+        error: function(error, status, xhr)
+        {
+            alert(error.status+" : "+ error.responseText);
+        },
+    });
+}
+
+
 function caricaRegistrazioni()
 {
     $("#content").load('../dashboard-segreteria/registrazioneCreate.html', function(){
@@ -170,13 +191,13 @@ function caricaRegistrazioni()
 function logout(){
     $.ajax({
         type: "POST",
-        url: "http://localhost:1337/logout",
+        url: "/logout",
         data: {},
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
             {
                 alert("logout avvenuto con successo");
-                window.location.href="http://localhost:1337/home/";
+                window.location.href="/home/";
             }
                 
         },

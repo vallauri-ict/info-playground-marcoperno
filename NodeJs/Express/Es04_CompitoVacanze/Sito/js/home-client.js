@@ -5,14 +5,14 @@ $(document).ready(function () {
 function checkAuthenticated() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:1337/checkAuthenticated",
+        url: "/checkAuthenticated",
         data: {},
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
                 if(risposta=="segreteria")
-                    window.location.href="http://localhost:1337/dashboard-segreteria/";
+                    window.location.href="/dashboard-segreteria/";
                 else
-                    window.location.href="http://localhost:1337/dashboard-volontario/";
+                    window.location.href="/dashboard-volontario/";
         },
         error: function(error, status, xhr)
         {
@@ -24,14 +24,14 @@ function checkAuthenticated() {
 function login(){
     $.ajax({
         type: "POST",
-        url: "http://localhost:1337/login",
+        url: "/login",
         data: {email : $("#email").val(), pwd : $("#pwd").val()},
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
                 if(risposta=="segreteria")
-                    window.location.href="http://localhost:1337/dashboard-segreteria/";
+                    window.location.href="/dashboard-segreteria/";
                 else
-                    window.location.href="http://localhost:1337/dashboard-volontario/";
+                    window.location.href="/dashboard-volontario/";
         },
         error: function(error, status, xhr)
         {

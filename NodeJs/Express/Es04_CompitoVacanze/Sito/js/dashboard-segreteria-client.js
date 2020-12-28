@@ -1,8 +1,9 @@
+const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_id", "ora", "servita", "volontario_persona_email"]
+//#region GESTIONE AUTENTICAZIONE
+
 $(document).ready(function () {
     checkAuthenticated();
 });
-
-let campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_id", "ora", "servita", "volontario_persona_email"]
 
 function checkAuthenticated() {
     $.ajax({
@@ -24,6 +25,29 @@ function checkAuthenticated() {
         },
     });
 }
+
+function logout(){
+    $.ajax({
+        type: "POST",
+        url: "/logout",
+        data: {},
+        success: function (risposta, status, xhr) {
+            if(xhr.status == 200)
+            {
+                alert("logout avvenuto con successo");
+                window.location.href="/home/";
+            }
+                
+        },
+        error: function(error, status, xhr)
+        {
+            alert(error.status+" : "+ error.responseText);
+        }
+    });
+}
+
+//#endregion
+//#region GESTIONE PRENOTAZIONI VIEW
 function caricaPrenotazioneIndex() {
     $("#content").load('../dashboard-segreteria/prenotazioneIndex.html', function(){
         caricaPrenotazioni();
@@ -125,9 +149,9 @@ function updatePrenotazione(id)
 {
     let vet = {};
     $.each(campiPrenotazione, function (index, val) { 
-        if(index==0)
+        if(val=='id')
             vet['id']= ''+id
-        else if(index==5)
+        else if(val=='servita')
         {
             let x = document.getElementById(val+"-"+id).checked;
             if(x == true)
@@ -180,30 +204,41 @@ function deletePrenotazione(id) {
     });
 }
 
-
+//#endregion
+//#region GESTIONE REGISTRAZIONI VIEW
 function caricaRegistrazioni()
 {
     $("#content").load('../dashboard-segreteria/registrazioneCreate.html', function(){
         
     });
 }
+function storePrenotazione() {
+    let vet = {};
+    $.each(campiPrenotazione, function (index, val) { 
+        if(val!='id' && val!='servita')
+        {
+            vet[val] = $("#"+val).val();
+        }
+    });
 
-function logout(){
     $.ajax({
         type: "POST",
-        url: "/logout",
-        data: {},
+        url: "/prenotazioneStore",
+        data: vet,
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
             {
-                alert("logout avvenuto con successo");
-                window.location.href="/home/";
+                alert("Inserito");
             }
-                
         },
         error: function(error, status, xhr)
         {
             alert(error.status+" : "+ error.responseText);
-        }
+        },
     });
 }
+
+
+
+
+//#endregion

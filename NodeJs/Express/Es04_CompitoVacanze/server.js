@@ -56,9 +56,21 @@ app.put('/prenotazioneUpdate', checkAuthenticated, function (req, res) {
     }
 });
 
-app.delete('/prenotazioneDelete', function (req, res) {
-    serv.prenotazioneDestroy(req, res);
-    /*if(req.session.tipo == 'segreteria')
+app.post('/prenotazioneStore', checkAuthenticated, function (req, res) {
+    //serv.prenotazioneStore(req, res);
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.prenotazioneStore(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+});
+
+app.delete('/prenotazioneDelete', checkAuthenticated, function (req, res) {
+    if(req.session.tipo == 'segreteria')
     {
         serv.prenotazioneDestroy(req, res);
     }
@@ -66,7 +78,7 @@ app.delete('/prenotazioneDelete', function (req, res) {
     {
         res.writeHead(401);
         res.end();
-    }*/
+    }
 });
 
 app.post('/login', checkNotAuthenticated, function (req, res) {

@@ -1,4 +1,4 @@
-const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_id", "ora", "servita", "volontario_persona_email"]
+const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
 //#region GESTIONE AUTENTICAZIONE
 
 $(document).ready(function () {

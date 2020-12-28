@@ -51,24 +51,32 @@ function caricaPrenotazioni() {
                         }
                         else if(i==2)
                         {
-                            td.text(val[campiPrenotazione[i]].substring(0,10));
+                            let input = $("<input type='date'/>");
+                            input.val(val[campiPrenotazione[i]].substring(0,10));
+                            input.attr('id', campiPrenotazione[i]+"-"+index);
+                            input.on('click',{'id': index}, toogleBtnSalva);
+                            td.append(input);
+                        }
+                        else if(i==4)
+                        {
+                            let input = $("<input type='time'/>");
+                            input.val(val[campiPrenotazione[i]]);
+                            input.attr('id', campiPrenotazione[i]+"-"+index);
+                            input.on('click',{'id': index}, toogleBtnSalva);
+                            td.append(input);
                         }
                         else if(i==5)
                         {
                             let checkbox = $("<input type='checkbox'/>");
-                            checkbox.attr('id', 'chk-'+index);
-                            checkbox.click(function() {
-                                let btn="btnSalva-"+checkbox.attr('id').substring(4);
-                                let stato=$("#"+btn).attr('disabled');
-                                $("#"+btn).attr('disabled', !stato);
-                            });
+                            checkbox.attr('id', 'servita-'+index);
+                            checkbox.on('click',  {'id': index}, toogleBtnSalva);
                             if(val[campiPrenotazione[i]] == '1')
                                 checkbox.attr('checked', true);
                             td.append(checkbox);
                         }
                         else if(i==7)
                         {
-                            let button = $("<button id='btnSalva-"+index+"' disabled=true class='btn btn-success'>Salva</button>");
+                            let button = $("<button id='btnSalva-"+index+"' onclick='updatePrenotazione("+index+")' disabled=true class='btn btn-success'>Salva</button>");
                             td.append(button);
                         }
                         else if(i==8)
@@ -77,7 +85,14 @@ function caricaPrenotazioni() {
                             td.append(button);
                         }
                         else
-                            td.text(val[campiPrenotazione[i]]);
+                        {
+                            let input = $("<input type='text'/>");
+                            input.val(val[campiPrenotazione[i]]);
+                            input.attr('id', campiPrenotazione[i]+"-"+index);
+                            input.on('click',{'id': index}, toogleBtnSalva);
+                            td.append(input);
+                        }
+                            
                         tr.append(td);
                     }
                     $("#tbody").append(tr);
@@ -94,6 +109,52 @@ function caricaPrenotazioni() {
                 window.location.href="http://localhost:1337/home";
             }
         }
+    });
+}
+
+function toogleBtnSalva(e)
+{
+    let btn="btnSalva-"+e.data.id;//+checkbox.attr('id').substring(8);
+    //let stato=$("#"+btn).attr('disabled');
+    $("#"+btn).attr('disabled', false);
+    //$("#"+btn).attr('disabled', !stato);
+}
+
+function updatePrenotazione(id)
+{
+    let vet = {};
+    $.each(campiPrenotazione, function (index, val) { 
+        if(index==0)
+            vet['id']=id
+        else if(index==5)
+        {
+            if($("#"+val+"-"+id).val() == "on")
+                vet[val] = true;
+            else
+                vet[val] = false;
+        }
+        else
+        {
+            vet[val] = $("#"+val+"-"+id).val();
+        }
+        
+    });
+    $.ajax({
+        type: "PUT",
+        url: "http://localhost:1337/prenotazione/:prenotazione",
+        data: vet,
+        success: function (risposta, status, xhr) {
+            if(xhr.status == 200)
+            {
+                alert("aggiornato");
+                $("#tbody").empty();
+                caricaPrenotazioni();
+            }
+        },
+        error: function(error, status, xhr)
+        {
+            window.location.href="http://localhost:1337/home";
+        },
     });
 }
 

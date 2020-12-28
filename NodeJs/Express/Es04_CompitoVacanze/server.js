@@ -46,7 +46,9 @@ app.get('/checkAuthenticated', checkAuthenticated, function (req, res) {
 app.put('/prenotazione/:prenotazione', checkAuthenticated, function (req, res) {
     if(req.session.tipo == 'segreteria')
     {
-        serv.prenotazioneUpdate(req, res);
+        //serv.prenotazioneUpdate(req, res);
+        res.write("ok");
+        res.end();
     }
     else
     {

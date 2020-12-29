@@ -189,34 +189,6 @@ function caricaRegistrazioni() {
         attivaValidator();
     });
 }
-function storePrenotazione() {
-
-    if ($('#formPrenotazione').valid()) {
-        let vet = {};
-        $.each(campiPrenotazione, function (index, val) {
-            if (val != 'id' && val != 'servita') {
-                vet[val] = $("#" + val).val();
-            }
-        });
-
-        $.ajax({
-            type: "POST",
-            url: "/prenotazioneStore",
-            data: vet,
-            success: function (risposta, status, xhr) {
-                if (xhr.status == 200) {
-                    alert("Inserito");
-                }
-            },
-            error: function (error, status, xhr) {
-                alert(error.status + " : " + error.responseText);
-            },
-        });
-
-    } else {
-        alert("form non valido");
-    }
-}
 
 function attivaValidator() {
     $.validator.addMethod("time", function (value, element) {
@@ -240,6 +212,10 @@ function attivaValidator() {
             indirizzo: {
                 required: true,
                 minlength: 5
+            },
+            tipopersona_tipo: {
+                required: true,
+                minlength: 2
             }
         },
         messages: {
@@ -247,6 +223,7 @@ function attivaValidator() {
             nome: "Inserire un nome più lungo",
             cognome: "Inserire un cognnome più lungo",
             indirizzo: "Inserire un indirizzo più lungo",
+            tipopersona_tipo: "Inserisci un tipo valido",
 
         },
         errorPlacement: function (error, element) {
@@ -319,6 +296,41 @@ function attivaValidator() {
     });
 }
 
+function storePrenotazione() {
+
+    if ($('#formPrenotazione').valid()) {
+        let vet = {};
+        $("#formPrenotazione :input").each(function(){
+            var input = $(this); // This is the jquery object of the input, do what you will  id e value
+                vet[input[0].id] = input[0].value;
+        });
+        /*$.each(campiPrenotazione, function (index, val) {
+            if (val != 'id' && val != 'servita') {
+                vet[val] = $("#" + val).val();
+            }
+        });*/
+
+        $.ajax({
+            type: "POST",
+            url: "/prenotazioneStore",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert("Inserito");
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+            },
+        });
+
+    } else {
+        alert("form non valido");
+    }
+}
+
+
+
 function storeNegozio() {
     if ($('#formNegozio').valid()) {
         alert("form is valid");
@@ -329,10 +341,28 @@ function storeNegozio() {
 }
 
 function storePersona() {
-    //console.log( $("#email").val());
-    //$('#formPersona').submit();
     if ($('#formPersona').valid()) {
-        alert("form is valid");
+        let vet = {};
+        $("#formPersona :input").each(function(){
+            var input = $(this); // This is the jquery object of the input, do what you will  id e value
+                vet[input[0].id] = input[0].value;
+        });
+
+        console.log(JSON.stringify(vet));
+
+        $.ajax({
+            type: "POST",
+            url: "/personaStore",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert("Inserito");
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+            },
+        });
 
     } else {
         alert("form is invalid");

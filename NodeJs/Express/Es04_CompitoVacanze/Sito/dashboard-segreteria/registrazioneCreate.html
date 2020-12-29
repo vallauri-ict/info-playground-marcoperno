@@ -1,7 +1,8 @@
-<label><strong> Nuova prenotazione</strong></label>
-<br>
-<div class="row">
-    <div class="form d-flex flex-wrap">
+<div>
+    <label><strong> Nuova prenotazione</strong></label>
+    <br>
+    <div class="row">
+        <form id="formPrenotazione" class="form d-flex flex-wrap">
             <div class="form-group pr-3">
                 <label for="cliente_persona_email" class="">cliente email:</label><br>
                 <input type="text" name="cliente_persona_email" id="cliente_persona_email" class="form-control">
@@ -22,14 +23,59 @@
                 <label for="volontario_persona_email" class="">Email volontario:</label><br>
                 <input type="text" name="volontario_persona_email" id="volontario_persona_email" class=" form-control">
             </div>
+        </form>
     </div>
-</div>
-<div class="row d-flex justify-content-start pl-2">
-    <button onclick="storePrenotazione()" class="btn btn-success">Salva prenotazione</button>
-</div>
-<hr>
-<label><strong> Nuovo negozio</strong></label>
-<br>
-<div class="row">
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="storePrenotazione()" class="btn btn-success">Salva prenotazione</button>
+    </div>
+    <hr>
+    <label><strong> Nuovo negozio</strong></label>
+    <br>
+    <div class="row">
+        <form id="formNegozio" class="form d-flex flex-wrap">
+            <div class="form-group pr-3">
+                <label for="negozio_nome_new" class="">Nome negozio:</label><br>
+                <input type="text" name="negozio_nome_new" id="negozio_nome_new" class="form-control">
+            </div>
+            <div class="form-group pr-3">
+                <label for="negozio_indirizzo_new" class="">Indirizzo:</label><br>
+                <input type="text" name="negozio_indirizzo_new" id="negozio_indirizzo_new" class="form-control">
+            </div>
+        </form>
+    </div>
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="storeNegozio()" class="btn btn-success">Salva negozio</button>
+    </div>
+    <hr>
 
+    <label><strong> Nuova persona</strong></label>
+    <br>
+    <div class="row">
+        <form id="formPersona" class="form d-flex flex-wrap">
+            <div class="form-group pr-3">
+                <label for="email" class="">Email:</label><br>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group pr-3">
+                <label for="nome" class="">Nome:</label><br>
+                <input type="text" name="nome" id="nome" class="form-control" >
+            </div>
+            <div class="form-group pr-3">
+                <label for="cognome" class="">Cognome:</label><br>
+                <input type="text" name="cognome" id="cognome" class="form-control" required>
+            </div>
+            <div class="form-group pr-3">
+                <label for="indirizzo" class="">Indirizzo:</label><br>
+                <input type="text" name="indirizzo" id="indirizzo" class="form-control" required>
+            </div>
+            <div class="form-group pr-3">
+                <label for="pwd" class="">Password:</label><br>
+                <input type="text" name="pwd" id="pwd" class="form-control">
+            </div>
+        </form>
+    </div>
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="storePersona()" class="btn btn-success">Salva persona</button>
+    </div>
+    <hr>
 </div>

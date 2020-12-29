@@ -2,6 +2,7 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "jquery": "^3.5.1",
+    "jquery-validation": "^1.19.2",
     "mysql": "^2.18.1",
     "util": "^0.12.3"
   }

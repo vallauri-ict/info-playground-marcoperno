@@ -9,7 +9,7 @@ function checkAuthenticated() {
         data: {},
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
-                if(risposta=="segreteria")
+                if(risposta.tipo=="segreteria")
                     window.location.href="/dashboard-segreteria/";
                 else
                     window.location.href="/dashboard-volontario/";
@@ -28,7 +28,7 @@ function login(){
         data: {email : $("#email").val(), pwd : $("#pwd").val()},
         success: function (risposta, status, xhr) {
             if(xhr.status == 200)
-                if(risposta=="segreteria")
+                if(risposta.tipo=="segreteria")
                     window.location.href="/dashboard-segreteria/";
                 else
                     window.location.href="/dashboard-volontario/";

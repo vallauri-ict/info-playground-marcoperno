@@ -2,6 +2,8 @@ const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome"
 
 //#region GESTIONE AUTENTICAZIONE
 
+let idVolontario="";
+
 $(document).ready(function () {
     checkAuthenticated();
 });
@@ -12,10 +14,10 @@ function checkAuthenticated() {
         url: "/checkAuthenticated",
         data: {},
         success: function (risposta, status, xhr) {
-            if (risposta == "volontario")//ulteriore controllo per verificare che sia effettivamente la segreteria
+            if (risposta.tipo == "volontario")//ulteriore controllo per verificare che sia effettivamente la segreteria
             {
+                idVolontario = risposta.id;
                 caricaPrenotazioneIndex();
-
             }
 
 
@@ -109,11 +111,12 @@ function toogleBtnSalva(e) {
 
 function updatePrenotazione(id) {
     let vet = {};
-    let x = document.getElementById(val + "-" + id).checked;
+    let x = document.getElementById("servita-" + id).checked;
     if (x == true)
         vet["servita"] = "1";
     else
         vet["servita"] = "0";
+    vet["id"]=id;
     $.ajax({
         type: "PUT",
         url: "/prenotazioneUpdate",

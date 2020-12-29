@@ -11,7 +11,7 @@ function checkAuthenticated() {
         url: "/checkAuthenticated",
         data: {},
         success: function (risposta, status, xhr) {
-            if (risposta == "segreteria")//ulteriore controllo per verificare che sia effettivamente la segreteria
+            if (risposta.tipo == "segreteria")//ulteriore controllo per verificare che sia effettivamente la segreteria
             {
                 caricaPrenotazioneIndex();
 

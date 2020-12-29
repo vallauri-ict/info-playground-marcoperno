@@ -38,8 +38,11 @@ app.use(session({
 
 
 app.get('/checkAuthenticated', checkAuthenticated, function (req, res) {
-    res.writeHead(200);
-    res.write(req.session.tipo);
+    res.writeHead(200, { "Content-Type": "application/json" });
+    let vet = {};
+    vet.id = req.session.persona_id,
+    vet.tipo = req.session.tipo
+    res.write(JSON.stringify( vet));
     res.end();
 });
 
@@ -101,7 +104,7 @@ app.post('/prenotazioneIndex', checkAuthenticated, function(req, res){
 app.post('/prenotazioneShow', checkAuthenticated, function(req, res){///da fare
     if(req.session.tipo == 'volontario')
     {
-        serv.prenotazioneIndex(req, res);
+        serv.prenotazioneShow(req, res);
     }
     else
     {

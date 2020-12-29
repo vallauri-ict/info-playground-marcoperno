@@ -45,7 +45,7 @@ app.get('/checkAuthenticated', checkAuthenticated, function (req, res) {
 
 app.put('/prenotazioneUpdate', checkAuthenticated, function (req, res) {
     //serv.prenotazioneUpdate(req, res);
-    if(req.session.tipo == 'segreteria')
+    if(req.session.tipo == 'segreteria' || req.session.tipo == 'volontario')
     {
         serv.prenotazioneUpdate(req, res);
     }
@@ -57,8 +57,8 @@ app.put('/prenotazioneUpdate', checkAuthenticated, function (req, res) {
 });
 
 app.post('/prenotazioneStore', function (req, res) {
-    serv.prenotazioneStore(req, res);
-    /*if(req.session.tipo == 'segreteria')
+    //serv.prenotazioneStore(req, res);
+    if(req.session.tipo == 'segreteria')
     {
         serv.prenotazioneStore(req, res);
     }
@@ -66,7 +66,7 @@ app.post('/prenotazioneStore', function (req, res) {
     {
         res.writeHead(401);
         res.end();
-    }*/
+    }
 });
 
 app.delete('/prenotazioneDelete', checkAuthenticated, function (req, res) {
@@ -96,7 +96,46 @@ app.post('/prenotazioneIndex', checkAuthenticated, function(req, res){
         res.writeHead(401);
         res.end();
     }
+});
+
+app.post('/prenotazioneShow', checkAuthenticated, function(req, res){///da fare
+    if(req.session.tipo == 'volontario')
+    {
+        serv.prenotazioneIndex(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+});
+
+app.post('/personaStore', checkAuthenticated, function(req, res){
+    //serv.personaStore(req, res);
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.personaStore(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+});
+
+app.post('/negozioStore', checkAuthenticated, function(req, res){
+    //serv.negozioStore(req, res);
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.negozioStore(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
 })
+
 
 app.post('/logout', checkAuthenticated, function (req, res) {
     serv.logout(req, res);
@@ -131,6 +170,7 @@ function checkAuthenticated(req, res, next) {
     else
     {
         res.writeHead(401);
+        res.write("Sessione scaduta");
         res.end(); 
     }
 }

@@ -39,6 +39,8 @@ function logout() {
         },
         error: function (error, status, xhr) {
             alert(error.status + " : " + error.responseText);
+            if(error.status ==  '401')
+                window.location.href = "/home";
         }
     });
 }
@@ -63,11 +65,11 @@ function caricaPrenotazioni() {
                     let tr = $("<tr></tr>");
                     for (let i = 0; i < 9; i++) {
                         let td = $("<td></td>");
-                        if (i == 0) {
+                        if (campiPrenotazione[i] == 'id') {
                             td.attr('id', val[campiPrenotazione[0]]);
                             td.text(val[campiPrenotazione[0]]);
                         }
-                        else if (i == 2) {
+                        else if (campiPrenotazione[i] == 'data') {
                             let input = $("<input type='date'/>");
                             let x = val[campiPrenotazione[i]].substring(0, 10);
                             input.val(val[campiPrenotazione[i]].substring(0, 10));
@@ -75,14 +77,14 @@ function caricaPrenotazioni() {
                             input.on('click', { 'id': val[campiPrenotazione[0]] }, toogleBtnSalva);
                             td.append(input);
                         }
-                        else if (i == 4) {
+                        else if (campiPrenotazione[i] == 'ora') {
                             let input = $("<input type='time'/>");
                             input.val(val[campiPrenotazione[i]]);
                             input.attr('id', campiPrenotazione[i] + "-" + val[campiPrenotazione[0]]);
                             input.on('click', { 'id': val[campiPrenotazione[0]] }, toogleBtnSalva);
                             td.append(input);
                         }
-                        else if (i == 5) {
+                        else if (campiPrenotazione[i] == 'servita') {
                             let checkbox = $("<input type='checkbox'/>");
                             checkbox.attr('id', 'servita-' + val[campiPrenotazione[0]]);
                             checkbox.on('click', { 'id': val[campiPrenotazione[0]] }, toogleBtnSalva);
@@ -160,6 +162,8 @@ function updatePrenotazione(id) {
         },
         error: function (error, status, xhr) {
             alert(error.status + " : " + error.responseText);
+            if(error.status ==  '401')
+                window.location.href = "/home";
         },
     });
 }
@@ -178,6 +182,8 @@ function deletePrenotazione(id) {
         },
         error: function (error, status, xhr) {
             alert(error.status + " : " + error.responseText);
+            if(error.status ==  '401')
+                window.location.href = "/home";
         },
     });
 }
@@ -321,6 +327,8 @@ function storePrenotazione() {
             },
             error: function (error, status, xhr) {
                 alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                window.location.href = "/home";
             },
         });
 
@@ -333,10 +341,37 @@ function storePrenotazione() {
 
 function storeNegozio() {
     if ($('#formNegozio').valid()) {
-        alert("form is valid");
+        let vet = {};
+        $("#formNegozio :input").each(function(){
+            var input = $(this); 
+            let attribute = input[0].id;
+            vet[attribute.slice(8,attribute.length-4)] = input[0].value;
+        });
+        console.log(JSON.stringify(vet));
+        /*$.each(campiPrenotazione, function (index, val) {
+            if (val != 'id' && val != 'servita') {
+                vet[val] = $("#" + val).val();
+            }
+        });*/
+
+        $.ajax({
+            type: "POST",
+            url: "/negozioStore",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert("Inserito");
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                    window.location.href = "/home";
+            },
+        });
 
     } else {
-        alert("form is invalid");
+        alert("form non valido");
     }
 }
 
@@ -361,6 +396,8 @@ function storePersona() {
             },
             error: function (error, status, xhr) {
                 alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                    window.location.href = "/home";
             },
         });
 

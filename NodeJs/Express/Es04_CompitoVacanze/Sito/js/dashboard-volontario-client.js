@@ -1,4 +1,4 @@
-const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
+const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "lista", "volontario_persona_email"]
 
 //#region GESTIONE AUTENTICAZIONE
 
@@ -57,6 +57,7 @@ function caricaPrenotazioneIndex() {
 
 }
 function caricaPrenotazioni() {
+    $("#tbody").empty();
     $.ajax({
         type: "POST",
         url: "/prenotazioneShow",
@@ -66,7 +67,7 @@ function caricaPrenotazioni() {
                 $.each(risposta, function (index, val) {
                     console.log(JSON.stringify(val));
                     let tr = $("<tr></tr>");
-                    for (let i = 0; i < 8; i++) {
+                    for (let i = 0; i < campiPrenotazione.length+1; i++) {
                         let td = $("<td></td>");
                         if (campiPrenotazione[i] == 'servita') {
                             let checkbox = $("<input type='checkbox'/>");
@@ -76,7 +77,7 @@ function caricaPrenotazioni() {
                                 checkbox.attr('checked', true);
                             td.append(checkbox);
                         }
-                        else if(i == 7 )
+                        else if(campiPrenotazione.length == i )
                         {
                             let button = $("<button id='btnSalva-" + val[campiPrenotazione[0]] + "' onclick='updatePrenotazione(" + val[campiPrenotazione[0]] + ")' disabled=true class='btn btn-success'>Salva</button>");
                             td.append(button);
@@ -90,6 +91,7 @@ function caricaPrenotazioni() {
                     $("#tbody").append(tr);
 
                 });
+                timer();
             }
 
         },
@@ -134,4 +136,8 @@ function updatePrenotazione(id) {
                 window.location.href = "/home";
         },
     });
+}
+
+function timer() {
+    setTimeout(caricaPrenotazioni, 60000);
 }

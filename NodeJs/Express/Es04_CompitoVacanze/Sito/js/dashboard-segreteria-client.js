@@ -1,4 +1,4 @@
-const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
+const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "lista", "volontario_persona_email"]
 //#region GESTIONE AUTENTICAZIONE
 
 $(document).ready(function () {
@@ -63,7 +63,7 @@ function caricaPrenotazioni() {
                 $.each(risposta, function (index, val) {
                     console.log(JSON.stringify(val));
                     let tr = $("<tr></tr>");
-                    for (let i = 0; i < 9; i++) {
+                    for (let i = 0; i < campiPrenotazione.length+2; i++) {
                         let td = $("<td></td>");
                         if (campiPrenotazione[i] == 'id') {
                             td.attr('id', val[campiPrenotazione[0]]);
@@ -92,11 +92,11 @@ function caricaPrenotazioni() {
                                 checkbox.attr('checked', true);
                             td.append(checkbox);
                         }
-                        else if (i == 7) {
+                        else if (campiPrenotazione.length == i) {
                             let button = $("<button id='btnSalva-" + val[campiPrenotazione[0]] + "' onclick='updatePrenotazione(" + val[campiPrenotazione[0]] + ")' disabled=true class='btn btn-success'>Salva</button>");
                             td.append(button);
                         }
-                        else if (i == 8) {
+                        else if (campiPrenotazione.length+1 == i) {
                             let button = $("<button id='btnElimina-" + val[campiPrenotazione[0]] + "' onclick='deletePrenotazione(" + val[campiPrenotazione[0]] + ")' class='btn btn-danger'>Elimina</button>");
                             td.append(button);
                         }
@@ -258,6 +258,10 @@ function attivaValidator() {
                 required: true,
                 time: "required time",
             },
+            lista: {
+                required: true,
+                minlength: 5
+            },
             volontario_persona_email: {
                 required: true,
                 email: true,
@@ -269,6 +273,7 @@ function attivaValidator() {
             negozio_nome: "Inserire un nome di negozio valido",
             data: "Inserire una data valida",
             ora: "Inserire un'ora valida",
+            ora: "Inserire lista più lunga",
             volontario_persona_email: "Inserisci una mail valida",
 
         },

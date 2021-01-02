@@ -122,7 +122,7 @@ function updatePrenotazione(id) {
         data: vet,
         success: function (risposta, status, xhr) {
             if (xhr.status == 200) {
-                alert("aggiornato");
+                alert(risposta);
                 $("#tbody").empty();
                 caricaPrenotazioni();
             }

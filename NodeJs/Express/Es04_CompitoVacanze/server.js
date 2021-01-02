@@ -174,7 +174,19 @@ app.post('/negozioUpdate', checkAuthenticated, function(req, res){
         res.writeHead(401);
         res.end();
     }
-})
+});
+
+app.delete('/negozioDelete', checkAuthenticated, function (req, res) {
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.negozioDestroy(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+});
 
 
 app.post('/logout', checkAuthenticated, function (req, res) {

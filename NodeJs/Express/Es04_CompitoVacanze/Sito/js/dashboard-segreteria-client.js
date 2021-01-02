@@ -156,7 +156,7 @@ function logout() {
 //#region GESTIONE PRENOTAZIONI VIEW
 
 function caricaPrenotazioneIndex() {
-    $("#content").load('../dashboard-segreteria/prenotazioneIndex.html', function () {
+    $("#content").load('../dashboard-segreteria/sezioneCreate.html', function () {
         caricaPrenotazioni();
     });
 
@@ -264,7 +264,7 @@ function updatePrenotazione(id) {
         data: vet,
         success: function (risposta, status, xhr) {
             if (xhr.status == 200) {
-                alert("aggiornato");
+                alert(risposta);
                 $("#tbody").empty();
                 caricaPrenotazioni();
             }
@@ -284,7 +284,7 @@ function deletePrenotazione(id) {
         data: { 'id': id },
         success: function (risposta, status, xhr) {
             if (xhr.status == 200) {
-                alert("eliminato");
+                alert(risposta);
                 $("#tbody").empty();
                 caricaPrenotazioni();
             }
@@ -311,14 +311,9 @@ function storePrenotazione() {
     if ($('#formPrenotazione').valid()) {
         let vet = {};
         $("#formPrenotazione :input").each(function(){
-            var input = $(this); // This is the jquery object of the input, do what you will  id e value
-                vet[input[0].id] = input[0].value;
+            var input = $(this); 
+            vet[input[0].id] = input[0].value;
         });
-        /*$.each(campiPrenotazione, function (index, val) {
-            if (val != 'id' && val != 'servita') {
-                vet[val] = $("#" + val).val();
-            }
-        });*/
 
         $.ajax({
             type: "POST",
@@ -326,7 +321,7 @@ function storePrenotazione() {
             data: vet,
             success: function (risposta, status, xhr) {
                 if (xhr.status == 200) {
-                    alert("Inserito");
+                    alert(risposta);
                 }
             },
             error: function (error, status, xhr) {
@@ -357,7 +352,7 @@ function storeNegozio() {
             data: vet,
             success: function (risposta, status, xhr) {
                 if (xhr.status == 200) {
-                    alert("Inserito");
+                    alert(risposta);
                 }
             },
             error: function (error, status, xhr) {
@@ -388,7 +383,7 @@ function storePersona() {
             data: vet,
             success: function (risposta, status, xhr) {
                 if (xhr.status == 200) {
-                    alert("Inserito");
+                    alert(risposta);
                 }
             },
             error: function (error, status, xhr) {
@@ -430,7 +425,7 @@ function updateNegozio() {
             data: vet,
             success: function (risposta, status, xhr) {
                 if (xhr.status == 200) {
-                    alert("Inserito");
+                    alert(risposta);
                 }
             },
             error: function (error, status, xhr) {
@@ -458,7 +453,7 @@ function updatePersona() {
             data: vet,
             success: function (risposta, status, xhr) {
                 if (xhr.status == 200) {
-                    alert("Inserito");
+                    alert(risposta);
                 }
             },
             error: function (error, status, xhr) {
@@ -497,7 +492,7 @@ function deleteNegozio() {
             data: vet,
             success: function (risposta, status, xhr) {
                 if (xhr.status == 200) {
-                    alert("Inserito");
+                    alert(risposta);
                 }
             },
             error: function (error, status, xhr) {

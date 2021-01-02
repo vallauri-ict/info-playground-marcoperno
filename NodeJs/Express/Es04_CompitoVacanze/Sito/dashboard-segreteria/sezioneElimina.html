@@ -1,0 +1,31 @@
+<div>
+    <label><strong> Elimina negozio</strong></label>
+    <br>
+    <div class="row">
+        <form id="formNegozio" class="form d-flex flex-wrap">
+            <div class="form-group pr-3">
+                <label for="negozio_nome_new" class="">Nome negozio:</label><br>
+                <input type="text" name="negozio_nome_new" id="negozio_nome_new" class="form-control">
+            </div>
+        </form>
+    </div>
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="deleteNegozio()" class="btn btn-success">Elimina negozio</button>
+    </div>
+    <hr>
+
+    <label><strong> Elimina persona</strong></label>
+    <br>
+    <div class="row">
+        <form id="formPersona" class="form d-flex flex-wrap">
+            <div class="form-group pr-3">
+                <label for="email" class="">Email:</label><br>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+        </form>
+    </div>
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="deletePersona()" class="btn btn-success">Elimina persona</button>
+    </div>
+    <hr>
+</div>

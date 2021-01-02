@@ -1,4 +1,111 @@
 const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
+
+function attivaValidator() {
+    $.validator.addMethod("time", function (value, element) {
+        return this.optional(element) || /^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/i.test(value);
+    }, "Please enter a valid time.");
+    $('#formPersona').validate({
+        rules: {
+            email: {
+                required: true,
+                email: true,
+                minlength: 1
+            },
+            nome: {
+                required: true,
+                minlength: 5
+            },
+            cognome: {
+                required: true,
+                minlength: 5
+            },
+            indirizzo: {
+                required: true,
+                minlength: 5
+            },
+            tipopersona_tipo: {
+                required: true,
+                minlength: 2
+            }
+        },
+        messages: {
+            email: "Inserisci una mail valida",
+            nome: "Inserire un nome più lungo",
+            cognome: "Inserire un cognnome più lungo",
+            indirizzo: "Inserire un indirizzo più lungo",
+            tipopersona_tipo: "Inserisci un tipo valido",
+
+        },
+        errorPlacement: function (error, element) {
+            var attr_name = element.attr('name');
+            error.insertAfter(element);
+        }
+
+    });
+    //////////////////
+    $('#formPrenotazione').validate({
+        rules: {
+            cliente_persona_email: {
+                required: true,
+                email: true,
+                minlength: 1
+            },
+            negozio_nome: {
+                required: true,
+                minlength: 2
+            },
+            data: {
+                required: true,
+                date: true
+            },
+            ora: {
+                required: true,
+                time: "required time",
+            },
+            volontario_persona_email: {
+                required: true,
+                email: true,
+                minlength: 1
+            },
+        },
+        messages: {
+            cliente_persona_email: "Inserisci una mail valida",
+            negozio_nome: "Inserire un nome di negozio valido",
+            data: "Inserire una data valida",
+            ora: "Inserire un'ora valida",
+            volontario_persona_email: "Inserisci una mail valida",
+
+        },
+        errorPlacement: function (error, element) {
+            var attr_name = element.attr('name');
+            error.insertAfter(element);
+        }
+
+    });
+    //////////////////////////
+    $('#formNegozio').validate({
+        rules: {
+            negozio_nome_new: {
+                required: true,
+                minlength: 2
+            },
+            negozio_indirizzo_new: {
+                required: true,
+                minlength: 2
+            },
+        },
+        messages: {
+            negozio_nome_new: "Inserisci un nome negozio valido",
+            negozio_indirizzo_new: "Inserire un indirzzo valido",
+        },
+        errorPlacement: function (error, element) {
+            var attr_name = element.attr('name');
+            error.insertAfter(element);
+        }
+
+    });
+}
+
 //#region GESTIONE AUTENTICAZIONE
 
 $(document).ready(function () {
@@ -47,12 +154,14 @@ function logout() {
 
 //#endregion
 //#region GESTIONE PRENOTAZIONI VIEW
+
 function caricaPrenotazioneIndex() {
     $("#content").load('../dashboard-segreteria/prenotazioneIndex.html', function () {
         caricaPrenotazioni();
     });
 
 }
+
 function caricaPrenotazioni() {
     $.ajax({
         type: "POST",
@@ -196,111 +305,6 @@ function caricaRegistrazioni() {
     });
 }
 
-function attivaValidator() {
-    $.validator.addMethod("time", function (value, element) {
-        return this.optional(element) || /^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/i.test(value);
-    }, "Please enter a valid time.");
-    $('#formPersona').validate({
-        rules: {
-            email: {
-                required: true,
-                email: true,
-                minlength: 1
-            },
-            nome: {
-                required: true,
-                minlength: 5
-            },
-            cognome: {
-                required: true,
-                minlength: 5
-            },
-            indirizzo: {
-                required: true,
-                minlength: 5
-            },
-            tipopersona_tipo: {
-                required: true,
-                minlength: 2
-            }
-        },
-        messages: {
-            email: "Inserisci una mail valida",
-            nome: "Inserire un nome più lungo",
-            cognome: "Inserire un cognnome più lungo",
-            indirizzo: "Inserire un indirizzo più lungo",
-            tipopersona_tipo: "Inserisci un tipo valido",
-
-        },
-        errorPlacement: function (error, element) {
-            var attr_name = element.attr('name');
-            error.insertAfter(element);
-        }
-
-    });
-    //////////////////
-    $('#formPrenotazione').validate({
-        rules: {
-            cliente_persona_email: {
-                required: true,
-                email: true,
-                minlength: 1
-            },
-            negozio_nome: {
-                required: true,
-                minlength: 2
-            },
-            data: {
-                required: true,
-                date: true
-            },
-            ora: {
-                required: true,
-                time: "required time",
-            },
-            volontario_persona_email: {
-                required: true,
-                email: true,
-                minlength: 1
-            },
-        },
-        messages: {
-            cliente_persona_email: "Inserisci una mail valida",
-            negozio_nome: "Inserire un nome di negozio valido",
-            data: "Inserire una data valida",
-            ora: "Inserire un'ora valida",
-            volontario_persona_email: "Inserisci una mail valida",
-
-        },
-        errorPlacement: function (error, element) {
-            var attr_name = element.attr('name');
-            error.insertAfter(element);
-        }
-
-    });
-    //////////////////////////
-    $('#formNegozio').validate({
-        rules: {
-            negozio_nome_new: {
-                required: true,
-                minlength: 2
-            },
-            negozio_indirizzo_new: {
-                required: true,
-                minlength: 2
-            },
-        },
-        messages: {
-            negozio_nome_new: "Inserisci un nome negozio valido",
-            negozio_indirizzo_new: "Inserire un indirzzo valido",
-        },
-        errorPlacement: function (error, element) {
-            var attr_name = element.attr('name');
-            error.insertAfter(element);
-        }
-
-    });
-}
 
 function storePrenotazione() {
 
@@ -337,8 +341,6 @@ function storePrenotazione() {
     }
 }
 
-
-
 function storeNegozio() {
     if ($('#formNegozio').valid()) {
         let vet = {};
@@ -348,11 +350,6 @@ function storeNegozio() {
             vet[attribute.slice(8,attribute.length-4)] = input[0].value;
         });
         console.log(JSON.stringify(vet));
-        /*$.each(campiPrenotazione, function (index, val) {
-            if (val != 'id' && val != 'servita') {
-                vet[val] = $("#" + val).val();
-            }
-        });*/
 
         $.ajax({
             type: "POST",
@@ -407,6 +404,137 @@ function storePersona() {
 
 }
 
+//#endregion
 
+//#region GESTIONE sezioneUpdate VIEW
+function caricaUpdate() {
+    $("#content").load('../dashboard-segreteria/sezioneUpdate.html', function () {
+        attivaValidator();
+    });
+}
+
+function updateNegozio() { 
+    if ($('#formNegozio').valid()) {
+        let vet = {};
+        $("#formNegozio :input").each(function(){
+            var input = $(this); 
+            let attribute = input[0].id;
+            vet[attribute.slice(8,attribute.length-4)] = input[0].value;
+        });
+
+        console.log(JSON.stringify(vet));
+
+        $.ajax({
+            type: "POST",
+            url: "/negozioUpdate",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert("Inserito");
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                    window.location.href = "/home";
+            },
+        });
+    }
+}
+
+function updatePersona() { 
+    if ($('#formPersona').valid()) {
+        let vet = {};
+        $("#formPersona :input").each(function(){
+            var input = $(this); // This is the jquery object of the input, do what you will  id e value
+                vet[input[0].id] = input[0].value;
+        });
+
+        console.log(JSON.stringify(vet));
+
+        $.ajax({
+            type: "POST",
+            url: "/personaUpdate",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert("Inserito");
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                    window.location.href = "/home";
+            },
+        });
+    }
+}
+
+//#endregion
+
+//#region GESTIONE sezioneElimina VIEW
+
+function caricaElimina() {
+    $("#content").load('../dashboard-segreteria/sezioneElimina.html', function () {
+        attivaValidator();
+    });
+}
+
+function deleteNegozio() { 
+    if ($('#formNegozio').valid()) {
+        let vet = {};
+        $("#formNegozio :input").each(function(){
+            var input = $(this); 
+            let attribute = input[0].id;
+            vet[attribute.slice(8,attribute.length-4)] = input[0].value;
+        });
+
+        console.log(JSON.stringify(vet));
+
+        $.ajax({
+            type: "DELETE",
+            url: "/negozioDelete",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert("Inserito");
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                    window.location.href = "/home";
+            },
+        });
+    }
+}
+
+function deletePersona() { 
+    if ($('#formPersona').valid()) {
+        let vet = {};
+        $("#formPersona :input").each(function(){
+            var input = $(this); // This is the jquery object of the input, do what you will  id e value
+                vet[input[0].id] = input[0].value;
+        });
+
+        console.log(JSON.stringify(vet));
+
+        $.ajax({
+            type: "DELETE",
+            url: "/personaDelete",
+            data: vet,
+            success: function (risposta, status, xhr) {
+                if (xhr.status == 200) {
+                    alert(risposta);
+                }
+            },
+            error: function (error, status, xhr) {
+                alert(error.status + " : " + error.responseText);
+                if(error.status ==  '401')
+                    window.location.href = "/home";
+            },
+        });
+    }
+}
 
 //#endregion

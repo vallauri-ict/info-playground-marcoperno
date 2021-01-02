@@ -125,11 +125,49 @@ app.post('/personaStore', checkAuthenticated, function(req, res){
     }
 });
 
+app.post('/personaUpdate', checkAuthenticated, function(req, res){
+    //serv.personaUpdate(req, res);
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.personaUpdate(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+});
+
+app.delete('/personaDelete', checkAuthenticated, function (req, res) {
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.personaDestroy(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+});
+
 app.post('/negozioStore', checkAuthenticated, function(req, res){
     //serv.negozioStore(req, res);
     if(req.session.tipo == 'segreteria')
     {
         serv.negozioStore(req, res);
+    }
+    else
+    {
+        res.writeHead(401);
+        res.end();
+    }
+})
+
+app.post('/negozioUpdate', checkAuthenticated, function(req, res){
+    //serv.negozioStore(req, res);
+    if(req.session.tipo == 'segreteria')
+    {
+        serv.negozioUpdate(req, res);
     }
     else
     {

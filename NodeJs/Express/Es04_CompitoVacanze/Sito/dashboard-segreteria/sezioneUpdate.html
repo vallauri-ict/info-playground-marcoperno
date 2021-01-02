@@ -1,0 +1,55 @@
+<div>
+    <label><strong> Nuovo negozio</strong></label>
+    <br>
+    <div class="row">
+        <form id="formNegozio" class="form d-flex flex-wrap">
+            <div class="form-group pr-3">
+                <label for="negozio_nome_new" class="">Nome negozio:</label><br>
+                <input type="text" name="negozio_nome_new" id="negozio_nome_new" class="form-control">
+            </div>
+            <div class="form-group pr-3">
+                <label for="negozio_indirizzo_new" class="">Indirizzo:</label><br>
+                <input type="text" name="negozio_indirizzo_new" id="negozio_indirizzo_new" class="form-control">
+            </div>
+        </form>
+    </div>
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="updateNegozio()" class="btn btn-success">Modifica negozio</button>
+    </div>
+    <hr>
+
+    <label><strong> Modifica persona</strong></label>
+    <br>
+    <div class="row">
+        <form id="formPersona" class="form d-flex flex-wrap">
+            <div class="form-group pr-3">
+                <label for="email" class="">Email:</label><br>
+                <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group pr-3">
+                <label for="nome" class="">Nome:</label><br>
+                <input type="text" name="nome" id="nome" class="form-control" >
+            </div>
+            <div class="form-group pr-3">
+                <label for="cognome" class="">Cognome:</label><br>
+                <input type="text" name="cognome" id="cognome" class="form-control" required>
+            </div>
+            <div class="form-group pr-3">
+                <label for="indirizzo" class="">Indirizzo:</label><br>
+                <input type="text" name="indirizzo" id="indirizzo" class="form-control" required>
+            </div>
+            <div class="form-group pr-3">
+                <label for="tipopersona_tipo" class="">Tipo persona:</label><br>
+                <input type="text" name="tipopersona_tipo" id="tipopersona_tipo" class="form-control">
+            </div>
+            <div class="form-group pr-3">
+                <label for="pwd" class="">Password:</label><br>
+                <input data-toggle="tooltip" data-placement="top" title="Se la persona è un cliente la password non è necessaria" type="text" name="pwd" id="pwd" class="form-control">
+            </div>
+        </form>
+    </div>
+    <div class="row d-flex justify-content-start pl-2">
+        <button onclick="updatePersona()" class="btn btn-success">Modifica persona</button>
+    </div>
+    <hr>
+</div>

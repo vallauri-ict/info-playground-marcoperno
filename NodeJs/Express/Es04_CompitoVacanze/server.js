@@ -40,8 +40,7 @@ app.use(session({
 app.get('/checkAuthenticated', checkAuthenticated, function (req, res) {
     res.writeHead(200, { "Content-Type": "application/json" });
     let vet = {};
-    vet.id = req.session.persona_id,
-    vet.tipo = req.session.tipo
+    vet.tipo = req.session.tipo;
     res.write(JSON.stringify( vet));
     res.end();
 });

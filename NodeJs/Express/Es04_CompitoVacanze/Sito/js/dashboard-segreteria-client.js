@@ -1,4 +1,4 @@
-const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "lista", "volontario_persona_email"]
+const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
 //#region GESTIONE AUTENTICAZIONE
 
 $(document).ready(function () {
@@ -258,10 +258,6 @@ function attivaValidator() {
                 required: true,
                 time: "required time",
             },
-            lista: {
-                required: true,
-                minlength: 5
-            },
             volontario_persona_email: {
                 required: true,
                 email: true,
@@ -273,7 +269,6 @@ function attivaValidator() {
             negozio_nome: "Inserire un nome di negozio valido",
             data: "Inserire una data valida",
             ora: "Inserire un'ora valida",
-            ora: "Inserire lista più lunga",
             volontario_persona_email: "Inserisci una mail valida",
 
         },

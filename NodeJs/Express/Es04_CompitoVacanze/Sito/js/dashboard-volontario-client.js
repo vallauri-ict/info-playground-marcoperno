@@ -1,8 +1,6 @@
-const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "lista", "volontario_persona_email"]
+const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
 
 //#region GESTIONE AUTENTICAZIONE
-
-let idVolontario="";
 
 $(document).ready(function () {
     checkAuthenticated();
@@ -16,7 +14,6 @@ function checkAuthenticated() {
         success: function (risposta, status, xhr) {
             if (risposta.tipo == "volontario")//ulteriore controllo per verificare che sia effettivamente la segreteria
             {
-                idVolontario = risposta.id;
                 caricaPrenotazioneIndex();
             }
 

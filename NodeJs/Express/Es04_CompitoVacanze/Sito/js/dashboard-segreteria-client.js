@@ -1,4 +1,5 @@
 const campiPrenotazione = ["id", "cliente_persona_email", "data", "negozio_nome", "ora", "servita", "volontario_persona_email"]
+let sezioneAttiva = "#idCaricaPrenotazioni";
 
 function attivaValidator() {
     $.validator.addMethod("time", function (value, element) {
@@ -106,6 +107,13 @@ function attivaValidator() {
     });
 }
 
+function cambiaSezione(nuovaSezioneId) {
+    $(sezioneAttiva).removeClass("nav-link active");
+    $(sezioneAttiva).addClass("nav-link");
+    $(nuovaSezioneId).addClass("nav-link active");
+    sezioneAttiva = nuovaSezioneId;
+}
+
 //#region GESTIONE AUTENTICAZIONE
 
 $(document).ready(function () {
@@ -156,7 +164,8 @@ function logout() {
 //#region GESTIONE PRENOTAZIONI VIEW
 
 function caricaPrenotazioneIndex() {
-    $("#content").load('../dashboard-segreteria/sezioneCreate.html', function () {
+    $("#content").load('../dashboard-segreteria/prenotazioneIndex.html', function () {
+        cambiaSezione("#idCaricaPrenotazioni");
         caricaPrenotazioni();
     });
 
@@ -300,7 +309,8 @@ function deletePrenotazione(id) {
 //#endregion
 //#region GESTIONE REGISTRAZIONI VIEW
 function caricaRegistrazioni() {
-    $("#content").load('../dashboard-segreteria/registrazioneCreate.html', function () {
+    $("#content").load('../dashboard-segreteria/sezioneCreate.html', function () {
+        cambiaSezione("#idCaricaRegistazioni");
         attivaValidator();
     });
 }
@@ -404,6 +414,7 @@ function storePersona() {
 //#region GESTIONE sezioneUpdate VIEW
 function caricaUpdate() {
     $("#content").load('../dashboard-segreteria/sezioneUpdate.html', function () {
+        cambiaSezione("#idCaricaUpdate");
         attivaValidator();
     });
 }
@@ -471,6 +482,7 @@ function updatePersona() {
 
 function caricaElimina() {
     $("#content").load('../dashboard-segreteria/sezioneElimina.html', function () {
+        cambiaSezione("#idCaricaElimina");
         attivaValidator();
     });
 }

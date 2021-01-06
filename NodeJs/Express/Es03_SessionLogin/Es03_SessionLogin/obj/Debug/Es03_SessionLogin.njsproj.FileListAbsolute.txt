@@ -1,2 +1,5 @@
 C:\Users\germano.pagliero\Desktop\5infE\Es03_SessionLogin\Es03_SessionLogin\obj\Debug\Es03_SessionLogin.njsprojAssemblyReference.cache
 C:\Users\germano.pagliero\Desktop\5infE\Es03_SessionLogin\Es03_SessionLogin\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\NodeJs\Express\Es03_SessionLogin\Es03_SessionLogin\obj\Debug\Es03_SessionLogin.njsprojAssemblyReference.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\NodeJs\Express\Es03_SessionLogin\Es03_SessionLogin\obj\Debug\Es03_SessionLogin.njsproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\NodeJs\Express\Es03_SessionLogin\Es03_SessionLogin\bin\Microsoft.NodejsTools.WebRole.dll

@@ -58,7 +58,7 @@ app.put('/prenotazioneUpdate', checkAuthenticated, function (req, res) {
     }
 });
 
-app.post('/prenotazioneStore', function (req, res) {
+app.post('/prenotazioneStore', checkAuthenticated, function (req, res) {
     //serv.prenotazioneStore(req, res);
     if(req.session.tipo == 'segreteria')
     {
@@ -193,27 +193,6 @@ app.post('/logout', checkAuthenticated, function (req, res) {
     serv.logout(req, res);
 });
 
-/*function checkAuthenticated(req, res, next) {
-    if(req.user != undefined)
-    {
-        if(req.session.email)
-        {
-            next();
-        }
-        else
-        {
-            res.writeHead(401);
-            res.end();
-        }
-    }
-    else
-    {
-        res.writeHead(401);
-        res.end(); 
-    }
-    
-}*/
-
 
 function checkAuthenticated(req, res, next) {
     if (req.session.email) {
@@ -238,11 +217,4 @@ function checkNotAuthenticated(req, res, next) {
     }
 }
 
-/*function checkResources(req, res, next) {
-    if(req.url=="/dashboard/" || req.url=="/dashboard/index.html")
-    {
-        checkAuthenticated(req, res, next);
-    }
-    next();
-}*/
 

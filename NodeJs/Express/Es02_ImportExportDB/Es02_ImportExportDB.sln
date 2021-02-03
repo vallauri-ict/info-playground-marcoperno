@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Es02_ImportExportDB", "Es02_ImportExportDB\Es02_ImportExportDB.njsproj", "{F4670305-F68B-4392-AFDE-C189E26B5CAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4670305-F68B-4392-AFDE-C189E26B5CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4670305-F68B-4392-AFDE-C189E26B5CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4670305-F68B-4392-AFDE-C189E26B5CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4670305-F68B-4392-AFDE-C189E26B5CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A283FD4C-7657-4150-913A-5CBB8954F967}
+	EndGlobalSection
+EndGlobal

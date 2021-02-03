@@ -1,0 +1,1 @@
+[{"_id":"600f3155350e1769cef2be84","tipo":"cliente"},{"_id":"600f316a350e1769cef2be85","tipo":"titolare"},{"_id":"601141fa5cf1fd1723cfe548","tipo":"segreteria"},{"_id":"601142095cf1fd1723cfe549","tipo":"cuoco"},{"_id":"6011420f5cf1fd1723cfe54a","tipo":"rider"}]

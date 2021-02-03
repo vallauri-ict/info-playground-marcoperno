@@ -1,0 +1,12 @@
+{
+  "name": "es02_import-export-db",
+  "version": "0.0.0",
+  "description": "Es02_ImportExportDB",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
+}

@@ -1,0 +1,6 @@
+C:\Users\Utente\Desktop\5infE\TPSI\MongoDB2020\Es02_ImportExportDB\Es02_ImportExportDB\obj\Debug\Es02_ImportExportDB.njsprojAssemblyReference.cache
+C:\Users\Utente\Desktop\5infE\TPSI\MongoDB2020\Es02_ImportExportDB\Es02_ImportExportDB\obj\Debug\Es02_ImportExportDB.njsproj.CoreCompileInputs.cache
+C:\Users\Utente\Desktop\5infE\TPSI\MongoDB2020\Es02_ImportExportDB\Es02_ImportExportDB\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\NodeJs\Express\Es02_ImportExportDB\Es02_ImportExportDB\obj\Debug\Es02_ImportExportDB.njsprojAssemblyReference.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\NodeJs\Express\Es02_ImportExportDB\Es02_ImportExportDB\obj\Debug\Es02_ImportExportDB.njsproj.CoreCompileInputs.cache
+C:\Users\marco\Desktop\Classroom - Git\info-playground-marcoperno\NodeJs\Express\Es02_ImportExportDB\Es02_ImportExportDB\bin\Microsoft.NodejsTools.WebRole.dll

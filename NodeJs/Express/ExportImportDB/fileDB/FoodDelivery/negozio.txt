@@ -1,0 +1,10 @@
+[
+    {
+        "_id": "6011d83a1b8a7463d627a4e7",
+        "nome": "Bar romano",
+        "citta": "Torino",
+        "via": "via roma",
+        "numCivico": 50,
+        "titolare_id": 1
+    }
+]

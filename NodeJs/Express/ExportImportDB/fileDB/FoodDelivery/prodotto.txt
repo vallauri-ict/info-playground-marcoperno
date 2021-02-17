@@ -1,0 +1,10 @@
+[
+    {
+        "_id": "6011e4a61b8a7463d627a4e9",
+        "nome": "Caffe romano",
+        "descrizione": "Fa schifo",
+        "prezzo": 1,
+        "negozio_id": "6011d83a1b8a7463d627a4e7",
+        "tag_id": "6011d9c21b8a7463d627a4e8"
+    }
+]

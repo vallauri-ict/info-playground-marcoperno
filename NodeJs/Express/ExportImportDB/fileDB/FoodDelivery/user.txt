@@ -1,0 +1,35 @@
+[
+    {
+        "_id": "6011ca4f1b8a7463d627a4e3",
+        "email": "test@test.com",
+        "nome": "asdsa",
+        "cognome": "sadasd",
+        "citta": "sadas",
+        "via": "adsas",
+        "numCivico": "2",
+        "password": "asdas",
+        "tipo_id": "600f3155350e1769cef2be84"
+    },
+    {
+        "_id": "6011ca4f1b8a7463d627a4e4",
+        "email": "test01@test.com",
+        "nome": "asdsa",
+        "cognome": "sadasd",
+        "citta": "sadas",
+        "via": "adsas",
+        "numCivico": "2",
+        "password": "asdas",
+        "tipo_id": "600f3155350e1769cef2be84"
+    },
+    {
+        "_id": "6011cb61290da922f05b903e",
+        "email": "ilfornaio392@gmail.com",
+        "nome": "Marco",
+        "cognome": "Perno",
+        "citta": "M",
+        "via": "s",
+        "numCivico": "22",
+        "password": "password",
+        "tipo_id": "600f3155350e1769cef2be84"
+    }
+]

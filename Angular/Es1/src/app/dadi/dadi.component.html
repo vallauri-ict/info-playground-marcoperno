@@ -1,0 +1,18 @@
+<span [ngStyle]=
+"{'backgroundColor':  dado1>dado2 ? 'red' : (dado2>dado1 ? 'green' : 'yellow')}">dado1 > {{ dado1 }}</span>
+<br>
+<span [ngClass]="{'rosso': dado1<dado2, 'verde': dado1>dado2, 'giallo': dado1==dado2}">Dado2 --> {{ dado2 }}</span>
+<br>
+<p>
+    <span *ngIf="dado1>dado2">Vince dado1</span>
+    <span *ngIf="dado1<dado2">Vince dado2</span>
+    <span *ngIf="pari">Pari</span>
+</p>
+<img src="{{ pathDado1 }}"  alt="dado{{ dado1 }}" width="50" height="60">
+<img [src]="pathDado2"  alt="dado{{ dado2 }}" width="50" height="60">
+<!-- if(dado1>dado2)
+    'red'
+else if(dado2>dado1)
+        'green'
+     else
+        'yellow' -->

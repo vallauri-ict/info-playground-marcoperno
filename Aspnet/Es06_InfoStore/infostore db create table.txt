@@ -1,0 +1,99 @@
+CREATE TABLE [DescrizioneCarrello] (
+  [IdProdotto] int,
+  [IdCarrello] int,
+  [qta] int
+);
+
+CREATE TABLE [Memorie] (
+  [IdTipo] int,
+  [dimensione] int,
+  [Velocita_accesso] int,
+  [Velcoita_scrittura] int,
+  [Velocita_rotazione] int,
+  [Numero_dischi] int,
+  [IdProdotto] int,
+  PRIMARY KEY ([IdTipo])
+);
+
+CREATE TABLE [Carrello] (
+  [IdCarrello] int,
+  [MetodoPagamento] varchar(50),
+  [Concluso] bool,
+  [IdFattura] int,
+  [IdCliente] int,
+  PRIMARY KEY ([IdCarrello])
+);
+
+CREATE TABLE [Conservazione] (
+  [IdProdotto] int,
+  [IdMagazzino] int,
+  [qta] int
+);
+
+CREATE TABLE [Mouse] (
+  [IdTipo] int,
+  [tipo] varchar(50),
+  [IdProdotto] int,
+  PRIMARY KEY ([IdTipo])
+);
+
+CREATE TABLE [Mouse] (
+  [IdTipo] int,
+  [tipo] varchar(50),
+  [IdProdotto] int,
+  PRIMARY KEY ([IdTipo])
+);
+
+CREATE TABLE [Fatture] (
+  [IdFattura] int,
+  [PrezzoTot] int,
+  [Pagato] bool,
+  PRIMARY KEY ([IdFattura])
+);
+
+CREATE TABLE [Cliente] (
+  [IdCliente] int,
+  [Nome] varchar(50),
+  [Cognome] varchar(50),
+  [IdCarrello] int,
+  PRIMARY KEY ([IdCliente])
+);
+
+CREATE TABLE [Prodotti] (
+  [IdProdotto] int,
+  [Marca] varchar(50),
+  [Prezzo] int,
+  [Nome] varchar(50),
+  PRIMARY KEY ([IdProdotto])
+);
+
+CREATE TABLE [Negozio] (
+  [IdNegozio] int,
+  [Nome] varchar(50),
+  [Telefono] int,
+  PRIMARY KEY ([IdNegozio])
+);
+
+CREATE TABLE [Magazzino] (
+  [IdMagazzino] int,
+  [Citta] varchar(50),
+  [Via] varchar(50),
+  [Numero] int,
+  [IdNegozio] int,
+  PRIMARY KEY ([IdMagazzino])
+);
+
+CREATE TABLE [Tastiera] (
+  [IdTipo] int,
+  [tipo_lingua] varchar(50),
+  [IdProdotto] int,
+  PRIMARY KEY ([IdTipo])
+);
+
+CREATE TABLE [Mouse] (
+  [IdTipo] int,
+  [tipo] varchar(50),
+  [IdProdotto] int,
+  PRIMARY KEY ([IdTipo])
+);
+

@@ -29,7 +29,12 @@ namespace ADOSQLServer2017_ns
             string cnString,DB;
             try
             {
-                DB = HttpContext.Current.Server.MapPath(dbName); //server.MapPath restituisce il percorso fisico della risoprsa passata come parametro
+                //var hostingRoot = HostingEnvironment.IsHosted
+                //                  ? HostingEnvironment.MapPath("~/") //se metto una sottocartella (esempio App_data) la mappa
+                //                  : AppDomain.CurrentDomain.BaseDirectory;
+                //DB = hostingRoot + dbName;
+                DB = AppDomain.CurrentDomain.BaseDirectory + dbName;
+                //DB = HttpContext.Current.Server.MapPath(dbName); //server.MapPath restituisce il percorso fisico della risoprsa passata come parametro
                 cnString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + DB +";Integrated Security=True;Connect Timeout=30";
                 cn = new SqlConnection();
                 cn.ConnectionString = cnString;

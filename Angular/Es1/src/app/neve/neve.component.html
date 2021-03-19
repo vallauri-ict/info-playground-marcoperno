@@ -1,0 +1,10 @@
+<table border=1>
+    <thead>
+        <td>Località</td>
+        <td>Altezza neve</td>
+    </thead>
+    <tr *ngFor="let dato of dati">
+        <td>{{ dato.nome }}</td>
+        <td>{{ dato.altezza }}</td>
+    </tr>
+</table>

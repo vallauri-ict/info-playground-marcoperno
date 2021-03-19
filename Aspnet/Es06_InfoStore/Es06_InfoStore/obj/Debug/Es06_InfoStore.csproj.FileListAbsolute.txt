@@ -11,3 +11,17 @@ C:\Users\germano.pagliero\Desktop\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoSto
 C:\Users\germano.pagliero\Desktop\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.csprojAssemblyReference.cache
 C:\Users\germano.pagliero\Desktop\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.dll
 C:\Users\germano.pagliero\Desktop\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.pdb
+C:\Users\germano.pagliero\Desktop\5infE\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoStore.dll.config
+C:\Users\germano.pagliero\Desktop\5infE\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoStore.dll
+C:\Users\germano.pagliero\Desktop\5infE\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoStore.pdb
+C:\Users\germano.pagliero\Desktop\5infE\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.csprojAssemblyReference.cache
+C:\Users\germano.pagliero\Desktop\5infE\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.dll
+C:\Users\germano.pagliero\Desktop\5infE\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.pdb
+C:\Users\germano.pagliero\Desktop\5Einf\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoStore.dll.config
+C:\Users\germano.pagliero\Desktop\5Einf\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoStore.dll
+C:\Users\germano.pagliero\Desktop\5Einf\Es06_InfoStore\Es06_InfoStore\bin\Es06_InfoStore.pdb
+C:\Users\germano.pagliero\Desktop\5Einf\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.csprojAssemblyReference.cache
+C:\Users\germano.pagliero\Desktop\5Einf\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.dll
+C:\Users\germano.pagliero\Desktop\5Einf\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.pdb
+C:\Users\germano.pagliero\Desktop\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.csproj.CopyComplete
+C:\Users\Utente\Desktop\5infE\Informatica\Es06_InfoStore\Es06_InfoStore\obj\Debug\Es06_InfoStore.csproj.CopyComplete

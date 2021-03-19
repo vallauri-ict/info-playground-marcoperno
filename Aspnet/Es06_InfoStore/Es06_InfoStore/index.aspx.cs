@@ -14,10 +14,5 @@ namespace Es06_InfoStore
             //Session["username"] = "pippo";
             //Response.Redirect("login.aspx");
         }
-
-        protected void lnkVediProdotti_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("vediProdotti.aspx");
-        }
     }
 }

@@ -18,12 +18,16 @@ namespace Es06_InfoStore
                 lnkLogout.Visible = false;
                 lnkUsername.Visible = true;
                 lnkUsername.Enabled = false;
+                lnkCarrello.Visible = false;
+                lnkUpload.Visible = false;
                 //perchè se la session non è definita errore
-                if (Session["username"] != null)
+                if (Session["email"] != null)
                 { 
-                    lnkUsername.Text = Session["username"].ToString();
+                    lnkUsername.Text = Session["email"].ToString();
                     lnkLogin.Visible = false;
                     lnkLogout.Visible = true;
+                    lnkCarrello.Visible = true;
+                    lnkUpload.Visible = true;
                 }
             }
             catch (Exception)
@@ -41,6 +45,20 @@ namespace Es06_InfoStore
         protected void lnkLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
+        }
+
+        protected void lnkVisArticoli_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("visualizzaArticoli.aspx");
+        }
+
+        protected void lnkCarrello_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("visualizzaCarrello.aspx");
+        }
+        protected void lnkUpload_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("upload.aspx");
         }
     }
 }

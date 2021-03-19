@@ -1,0 +1,19 @@
+<input type="checkbox" name="chkVisPag" (change)="visPag=!visPag" >Visualizza Pagine {{ visPag }}
+<table border=1>
+    <thead>
+        <td>Author</td>
+        <td>Country</td>
+        <td  [ngStyle]="{'display': visPag ? '' : 'none'}">Pages</td>
+        <td>Title</td>
+        <td>Year</td>
+    </thead>
+    <tr *ngFor="let libro of libri" 
+            [ngStyle] = "{'backgroundColor':  libro.country == 'Italy' ? 'cyan' : 'white'}"
+            [ngClass] = "{'min1800' : libro.year<1800}">
+        <td>{{ libro.author }}</td>
+        <td>{{ libro.country }}</td>
+        <td  *ngIf="visPag">{{ libro.pages }}</td>
+        <td>{{ libro.title }}</td>
+        <td>{{ libro.year }}</td>
+    </tr>
+</table>

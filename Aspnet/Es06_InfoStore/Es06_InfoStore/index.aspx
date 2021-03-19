@@ -3,9 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphNavBar" runat="server">
-    <li class="nav-item">
-        <asp:LinkButton class="nav-link" ID="lnkVediProdotti" runat="server" OnClick="lnkVediProdotti_Click" >Prodotti</asp:LinkButton>
-    </li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
     <div class="jumbotron">

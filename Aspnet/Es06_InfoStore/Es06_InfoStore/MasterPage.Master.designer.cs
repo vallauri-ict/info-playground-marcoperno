@@ -51,6 +51,33 @@ namespace Es06_InfoStore
         protected global::System.Web.UI.WebControls.LinkButton lnkLogout;
 
         /// <summary>
+        /// Controllo lnkVisArticoli.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkVisArticoli;
+
+        /// <summary>
+        /// Controllo lnkCarrello.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkCarrello;
+
+        /// <summary>
+        /// Controllo lnkUpload.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkUpload;
+
+        /// <summary>
         /// Controllo cphNavBar.
         /// </summary>
         /// <remarks>

@@ -35,6 +35,15 @@
                         <li class="nav-item">
                             <asp:LinkButton class="nav-link" ID="lnkLogout" runat="server" OnClick="lnkLogout_Click">Logout</asp:LinkButton>
                         </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link" ID="lnkVisArticoli" runat="server" OnClick="lnkVisArticoli_Click">Prodotti</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link" ID="lnkCarrello" runat="server" OnClick="lnkCarrello_Click">Carrello</asp:LinkButton>
+                        </li>
+                        <li class="nav-item">
+                            <asp:LinkButton class="nav-link" ID="lnkUpload" runat="server" OnClick="lnkUpload_Click">Upload</asp:LinkButton>
+                        </li>
                         <asp:ContentPlaceHolder ID="cphNavBar" runat="server">
                         </asp:ContentPlaceHolder>
                     </ul>

@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -63,6 +67,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\infoStore.mdf" />
+    <Content Include="App_Data\infoStore_log.ldf">
+      <DependentUpon>infoStore.mdf</DependentUpon>
+    </Content>
+    <Content Include="confermaOrdine.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -76,13 +85,19 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="css\myCss.css" />
+    <Content Include="Global.asax" />
     <Content Include="img\favicon.ico" />
+    <Content Include="img\img1.png" />
+    <Content Include="img\img2.png" />
     <Content Include="img\raspberry.png" />
     <Content Include="index.aspx" />
     <Content Include="inf5E.html" />
     <Content Include="login.aspx" />
     <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
+    <Content Include="pagDettaglioProdotto.aspx" />
+    <Content Include="pagErrore.aspx" />
+    <Content Include="pagHomeAdmin.aspx" />
     <Content Include="registrati.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -177,7 +192,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="visualizzaArticoliaspx.aspx" />
+    <Content Include="upload.aspx" />
+    <Content Include="visualizzaArticoli.aspx" />
+    <Content Include="visualizzaCarrello.aspx" />
     <Content Include="Web.config" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -193,6 +210,16 @@
   <ItemGroup>
     <Compile Include="App_Code\ADOSQLServer2017.cs" />
     <Compile Include="App_Code\clsDB.cs" />
+    <Compile Include="confermaOrdine.aspx.cs">
+      <DependentUpon>confermaOrdine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="confermaOrdine.aspx.designer.cs">
+      <DependentUpon>confermaOrdine.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,6 +241,27 @@
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
+    <Compile Include="pagDettaglioProdotto.aspx.cs">
+      <DependentUpon>pagDettaglioProdotto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagDettaglioProdotto.aspx.designer.cs">
+      <DependentUpon>pagDettaglioProdotto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagErrore.aspx.cs">
+      <DependentUpon>pagErrore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagErrore.aspx.designer.cs">
+      <DependentUpon>pagErrore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagHomeAdmin.aspx.cs">
+      <DependentUpon>pagHomeAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagHomeAdmin.aspx.designer.cs">
+      <DependentUpon>pagHomeAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registrati.aspx.cs">
       <DependentUpon>registrati.aspx</DependentUpon>
@@ -222,12 +270,26 @@
     <Compile Include="registrati.aspx.designer.cs">
       <DependentUpon>registrati.aspx</DependentUpon>
     </Compile>
-    <Compile Include="visualizzaArticoliaspx.aspx.cs">
-      <DependentUpon>visualizzaArticoliaspx.aspx</DependentUpon>
+    <Compile Include="upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="visualizzaArticoliaspx.aspx.designer.cs">
-      <DependentUpon>visualizzaArticoliaspx.aspx</DependentUpon>
+    <Compile Include="upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizzaArticoli.aspx.cs">
+      <DependentUpon>visualizzaArticoli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizzaArticoli.aspx.designer.cs">
+      <DependentUpon>visualizzaArticoli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizzaCarrello.aspx.cs">
+      <DependentUpon>visualizzaCarrello.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizzaCarrello.aspx.designer.cs">
+      <DependentUpon>visualizzaCarrello.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -247,7 +309,9 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="bin\" />
+    <Folder Include="csv\" />
+    <Folder Include="Fatture\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

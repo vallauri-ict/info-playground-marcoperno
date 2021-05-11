@@ -1,0 +1,26 @@
+<table border=1>
+    <thead>
+        <td>Id</td>
+        <td>Author</td>
+        <td>Country</td>
+        <td>Pages</td>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Modifica</td>
+        <td>Cancella</td>
+    </thead>
+    <tr *ngFor="let libro of libriService.libri" 
+            [ngStyle] = "{'backgroundColor':  libro.country == 'Italy' ? 'cyan' : 'white'}"
+            [ngClass] = "{'min1800' : libro.year<1800}">
+        <td><button (click)="btnClick(libro.id)">{{ libro.id }}</button></td>
+        <td>{{ libro.author }}</td>
+        <td>{{ libro.country }}</td>
+        <td>{{ libro.pages }}</td>
+        <td>{{ libro.title }}</td>
+        <td>{{ libro.year }}</td>
+        <td><button (click)="btnModificaClick(libro)">Modifica</button></td>
+        <td><button (click)="btnCancellaClick(libro.id)">Cancella</button></td>
+</tr>
+</table>
+<br>
+<button (click)="btnInserisciClick()">Inserisci Libro</button>

@@ -1,0 +1,6 @@
+<app-navbar-mia  [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-navbar-mia>
+<!--<a routerLink="/login">aa</a>-->
+<!--<app-login *ngIf="loggato==false;" [loggato]="loggato" (loggatoOra)="loggatoChanged($event)"></app-login>-->
+<app-login *ngIf="arrayLogin==undefined;" [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-login>
+<app-eventi *ngIf="arrayLogin!=undefined;" [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-eventi>
+<router-outlet></router-outlet>

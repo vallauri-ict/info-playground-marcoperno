@@ -40,6 +40,29 @@ namespace WebApplication1
             return p;
         }
 
+        internal void aggiornaPrezzoArticolo(int IDArticolo, int Prezzo)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "UPDATE Articoli ";
+            cmd.CommandText += "SET Prezzo=@Prezzo ";
+            cmd.CommandText += "WHERE IDArticolo=@IDArticolo ";
+            //N.B. dovrei andare a gestire i magazzini
+            cmd.Parameters.AddWithValue("@IDArticolo", IDArticolo);
+            cmd.Parameters.AddWithValue("@Prezzo", Prezzo);
+            ado.EseguiNonQuery(cmd);
+        }
+
+        internal DataTable restituisciMateriePrimeMancanti()
+        {
+            DataTable dt;
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "SELECT Fornitori.Email, Articoli.IDArticolo, Articoli.Giacenza, Articoli.ScortaMinima, Articoli.Prezzo FROM Articoli, Fornitori WHERE Articoli.Giacenza<Articoli.ScortaMinima AND Articoli.IDCategoria = 1 AND Articoli.IDFornitore = Fornitori.IDFornitore ";
+            //cmd.CommandText += "WHERE userName=@userName ";
+            //cmd.Parameters.AddWithValue("@userName", userName);
+            cmd.CommandType = CommandType.Text;
+            return dt = ado.EseguiQuery(cmd);
+        }
+
         public  DataTable restituisciCorsi()
         {
             DataTable dt;

@@ -1,0 +1,10 @@
+<form>
+    <label for="txtDa">Da: </label>
+    <input type="text" name="txtDa" [(ngModel)]="da">
+    <br>
+    <label for="txtA">A: </label>
+    <input type="text" name="txtA" [(ngModel)]="a">
+    <br>
+    <button (click)="btnClick()">Lancia un dado</button>
+    <span>Numero Casuale: {{ numero }}</span>
+</form>

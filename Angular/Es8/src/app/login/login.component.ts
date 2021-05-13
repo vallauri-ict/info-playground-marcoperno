@@ -18,23 +18,25 @@ export class LoginComponent {
   constructor(private services:ServicesService, private router: Router) { 
     
   }
+  
+  async ngOnInit(){
+    if(await this.services.login({}))
+      this.router.navigateByUrl('/eventi');
+  }
 
-  login(){
+  async login(){
     
     let obj = {};
     obj["email"] = this.login_username;
     obj["pwd"] = this.login_password;
-    this.services.login(obj).subscribe(
-      (data:any) =>{
-        //DAL SERVER DEVE SEMPRE ARRIVARE UN DATO IN FORMATO JSON ALTRIMENTI NON ENTRA QUA MA IN ERROR
-        this.arrayLoginEvent.emit(data);
-        //this.loggatoOra.emit(true)
-      },
-      (error:any)=>{
-        
-        alert(JSON.stringify(error));
-      }
-    );
+    if( await this.services.login(obj) == true) {
+      this.router.navigateByUrl('/eventi');
+    }
+    else {
+      alert("Errore nel logim")
+    }
   }
+
+  
 
 }

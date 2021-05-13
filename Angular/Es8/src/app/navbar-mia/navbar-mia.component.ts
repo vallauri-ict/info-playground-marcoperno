@@ -21,7 +21,7 @@ export class NavbarMiaComponent implements OnInit {
 
   logout(){
     
-    this.service.logout().subscribe(
+    /*this.service.logout().subscribe(
       (data:any) =>{
         //DAL SERVER DEVE SEMPRE ARRIVARE UN DATO IN FORMATO JSON ALTRIMENTI NON ENTRA QUA MA IN ERROR
         this.arrayLoginEvent.emit(undefined)
@@ -30,7 +30,7 @@ export class NavbarMiaComponent implements OnInit {
         
         alert(JSON.stringify(error));
       }
-    );
+    );*/
   }
 
 }

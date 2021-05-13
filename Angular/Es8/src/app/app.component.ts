@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 
 import { Router } from '@angular/router'; 
 import { RouterModule, Routes} from '@angular/router';
+import { ServicesService } from "./services/services.service"
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,21 +10,17 @@ import { RouterModule, Routes} from '@angular/router';
 })
 export class AppComponent {
   title = 'Es8';
-  loggato:boolean = false;
-  loggatoOra:boolean = false;
-  arrayLogin: any;
-  arrayLoginEvent: any;
-  constructor(private router: Router) {
-    if(this.loggato==true)
-      this.router.navigateByUrl('/eventi');
+  
+  constructor(private router: Router, public services:ServicesService) {
+    
   }
-  loggatoChanged(logg: boolean) {
-    console.log("ss")
-    this.loggato = logg;
-  }
-  arrayLoginChanged(_arrayLogin: any) {
-    console.log("ss")
-    this.arrayLogin = _arrayLogin;
+  async logout(){
+    if( await this.services.logout() == true) {
+      this.router.navigateByUrl('/login');
+    }
+    else {
+      alert("Errore nel logout")
+    }
   }
 
 }

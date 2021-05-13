@@ -1,27 +1,42 @@
-
-
-
-
 <div class="container">
+    <full-calendar deepChangeDetection="true" [options]="calendarOptions"></full-calendar>
     <div class="row">
-        <div>
-            <div class="analog-clock">
-                <div class="hour hand" [ngStyle]="hourHandStyle"></div>
-                <div class="minute hand" [ngStyle]="minuteHandStyle"></div>
-                <div class="second hand" [ngStyle]="secondHandStyle"></div>
-                <div class="center-circle"></div>
-                <div class="digital-clock">{{format(hour)}}:{{format(minute)}}:{{format(second)}}</div>
-            </div>
-            
+        <div class="table-wrapper">
+            <table  class="fl-table">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>date</th>
+                        <th>hourStart</th>
+                        <th>hourFinish</th>
+                        <th>minuteStart</th>
+                        <th>minuteFinish</th>
+                        <th>color</th>
+                        <th>type</th>
+                        <th>modifica</th>
+                        <th>elimina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evento of eventi;let i = index" [attr.data-index]="i" ><!--[ngStyle]="{'backgroundColor': evento.color}"-->
+                        
+                        <td> <input style="width: 100px;"  type="text" (change)="modifica($event, i, 'name')" value="{{ evento.name }}"></td>
+                        <td><input type="date" (change)="modifica($event, i, 'date')" [value]="evento.date | date:'yyyy-MM-dd'"></td>
+                        <td><input type="number" max="24" min="0" onKeyDown="return false" (change)="modifica($event, i, 'hourStart')" value="{{ evento.hourStart}}" ></td>
+                        <td><input type="number" max="59" min="0" onKeyDown="return false" (change)="modifica($event, i, 'minuteStart')" value="{{ evento.minuteStart}}" ></td>
+                        <td><input type="number" max="24" min="0" onKeyDown="return false" (change)="modifica($event, i, 'hourFinish')" value="{{ evento.hourFinish}}" ></td>
+                        <td><input type="number" max="59" min="0" onKeyDown="return false" (change)="modifica($event, i, 'minuteFinish')" value="{{ evento.minuteFinish }}" ></td>
+                        <td><input type="color" (change)="modifica($event, i, 'color')" value="{{ evento.color }}"></td>
+                        <td><input style="width: 100px;"  type="text" (change)="modifica($event, i, 'type')" value="{{ evento.type}}" ></td>
+                        <td><button class="btn btn-primary" (click)="salva($event, i)" >Salva</button></td>
+                        <td><button class="btn btn-danger" (click)="elimina($event, i)">Elimina</button></td>
+                    </tr>
+                </tbody>
+    
+            </table>
         </div>
-    </div>
-    <div class="row">
         
     </div>
-    
 
-    <input type="date" name="" id="">
-    
+
 </div>
-
-

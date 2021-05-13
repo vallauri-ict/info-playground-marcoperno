@@ -65,7 +65,7 @@ function Login(req, res, next) {
         else {
             req.logIn(user, (err) => {
                 if (err) throw err;
-                res.json({msg: "Successfully Authenticated", _id:user._id});
+                res.json({msg: "Successfully Authenticated", _id:user._id, name: req.user.name});
                 console.log(req.user);
             });
         }

@@ -29,7 +29,7 @@ module.exports = {
         if (req.user == undefined) {
             next();
         } else {
-            res.send({msg:"Sei già loggato"})
+            res.json({msg:"Sei già loggato", _id: req.user._id, name: req.user.name})
         }
     },
     ReturnError: (error) => {  

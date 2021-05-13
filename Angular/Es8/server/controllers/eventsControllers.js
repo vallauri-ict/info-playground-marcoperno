@@ -16,6 +16,32 @@ async function Show(req) {
 
 //#endregion
 
+//#region
+
+async function ShowByUserId(req) {
+    try {
+        let events = await Event.find({user_id: req.user._id}, req.query.fields);
+        return events;
+    } catch (error) {
+        commonFunctions.ReturnError(error);
+    }
+}
+
+//#endregion
+
+//#region
+
+async function ShowByDate(req) {
+    try {
+        let events = await Event.find({user_id: req.user._id, date: req.params.date}, req.query.fields);
+        return events;
+    } catch (error) {
+        commonFunctions.ReturnError(error);
+    }
+}
+
+//#endregion
+
 //#region STORE
 
 async function Store(req) {
@@ -23,7 +49,7 @@ async function Store(req) {
 
         let event = new Event({
             name: req.body.name,
-            date: req.body.date,
+            date: req.body.date+"T00:00:00.000+00:00",
             hourStart: req.body.hourStart,
             minuteStart: req.body.minuteStart,
             hourFinish: req.body.hourFinish,
@@ -57,8 +83,25 @@ async function Update(req) {
 
 //#endregion
 
+//#region UPDATE
+
+async function Delete(req) {
+    try {
+        let event = await Event.findByIdAndDelete({_id: req.params.eventId});
+        return event;
+    } catch (error) {
+        error.messageToReturn = "Errore nell'eliminazione dell'event";
+        commonFunctions.ReturnError(error);
+    }
+}
+
+//#endregion
+
 
 
 module.exports.Show = Show;
+module.exports.ShowByUserId = ShowByUserId;
+module.exports.ShowByDate = ShowByDate;
 module.exports.Store = Store;
 module.exports.Update = Update;
+module.exports.Delete = Delete;

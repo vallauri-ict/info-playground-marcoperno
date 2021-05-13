@@ -1,6 +1,27 @@
-<app-navbar-mia  [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-navbar-mia>
+<!--<app-navbar-mia  [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-navbar-mia>-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li routerLink="/home"><a>Home</a></li>
+            <li *ngIf="this.services.name==undefined;"  routerLink="/login" ><a>login</a></li>
+            <li  *ngIf="this.services.name!=undefined;" ><a>{{this.services.name}}</a></li>
+            <li  (click)="logout()"><a>logout</a></li><!--(click)="logout()"-->
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  
 <!--<a routerLink="/login">aa</a>-->
 <!--<app-login *ngIf="loggato==false;" [loggato]="loggato" (loggatoOra)="loggatoChanged($event)"></app-login>-->
-<app-login *ngIf="arrayLogin==undefined;" [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-login>
-<app-eventi *ngIf="arrayLogin!=undefined;" [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-eventi>
+<!--<app-login *ngIf="arrayLogin==undefined;" [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-login>
+<app-eventi *ngIf="arrayLogin!=undefined;" [arrayLogin]="arrayLogin" (arrayLoginEvent)="arrayLoginChanged($event)"></app-eventi>-->
 <router-outlet></router-outlet>

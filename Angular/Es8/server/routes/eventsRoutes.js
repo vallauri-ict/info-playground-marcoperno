@@ -18,6 +18,35 @@ router.get('/:eventId', async (req, res) => {
 
 //#endregion
 
+
+//#region SHOWByUserId
+
+router.get('/show/userId', async (req, res) => {
+    try {
+        let event = await eventController.ShowByUserId(req);
+        res.json(event)
+    } catch (error) {
+        res.statusCode = 404;
+        commonFunctions.SendError("Errore nella restituizione degli events cercati", error, res)
+    }
+})
+
+//#endregion
+
+//#region SHOWByUserId
+
+router.get('/show/date/:date', async (req, res) => {
+    try {
+        let event = await eventController.ShowByDate(req);
+        res.json(event)
+    } catch (error) {
+        res.statusCode = 404;
+        commonFunctions.SendError("Errore nella restituizione degli events cercati", error, res)
+    }
+})
+
+//#endregion
+
 //#region STORE
 
 router.post("/", async (req, res) => {
@@ -41,6 +70,20 @@ router.put('/:eventId',commonFunctions.IsLoggedIn(), async (req, res) => {
     } catch (error) {
         res.statusCode = 400;
         commonFunctions.SendError(error.messageToReturn, error, res)
+    }
+})
+
+//#endregion
+
+//#region SHOW
+
+router.delete('/:eventId', async (req, res) => {
+    try {
+        let event = await eventController.Delete(req);
+        res.json(event)
+    } catch (error) {
+        res.statusCode = 400;
+        commonFunctions.SendError("Errore nell'eliminazione dell'event cercato", error, res)
     }
 })
 

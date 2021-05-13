@@ -1,0 +1,26 @@
+
+<div class="circle"></div>
+<div class="circle2"></div>
+<div class="container" style="height: 100%;">
+    <div class="row">
+        <div class="col-12">
+            <div style="font-size: 100px; font-weight: 700;text-align: center;padding-top: 40px;padding-bottom: 40px;animation: fadein 2s;">BENVENUTO</div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div>
+                <div class="analog-clock">
+                    <div class="hour hand" [ngStyle]="hourHandStyle"></div>
+                    <div class="minute hand" [ngStyle]="minuteHandStyle"></div>
+                    <div class="second hand" [ngStyle]="secondHandStyle"></div>
+                    <div class="center-circle"></div>
+                </div>
+                <div class="digital-clock">{{format(hour)}}:{{format(minute)}}:{{format(second)}}</div>
+            
+            
+        </div>
+    </div>
+    
+    
+</div>
